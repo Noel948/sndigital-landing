@@ -769,11 +769,7 @@
           <p class="dl-desc">
             Egy gyors lista — nézd meg hol tart most a szervized, és hol van még javítanivaló. 5 perc alatt végzel.
           </p>
-          <button class="dl-btn dl-btn-cyan"
-            data-dl="checklist"
-            data-title="Checklist letöltése"
-            data-desc="Add meg az email címed és elküldjük. Nem iratkozol fel semmire — csak ezt az egy anyagot küldjük el."
-            data-pdf="checklist.pdf">
+          <button class="dl-btn dl-btn-cyan" id="btn-checklist">
             ⬇ Letöltöm a checklistet
           </button>
         </div>
@@ -924,6 +920,24 @@
     <p><a href="index.html">Főoldal</a> &nbsp;·&nbsp; <a href="adatkezeles.html">Adatkezelési tájékoztató</a></p>
   </footer>
 
+  <!-- ═══ GHL FORM MODAL (1. gomb — checklist) ═══ -->
+  <div class="dl-modal" id="ghl-modal" role="dialog" aria-modal="true">
+    <div class="dl-modal-box" style="max-width:580px; padding:32px 32px 28px;">
+      <button class="dl-modal-close" id="ghl-modal-close" aria-label="Bezárás">×</button>
+      <div class="dl-modal-ikon">✅</div>
+      <h3>Checklist letöltése</h3>
+      <p>Töltsd ki az alábbi mezőket — elküldjük emailben, és azonnal le is töltheted.</p>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/XXhUvUlNg0LWTskUG0u3"
+        style="display:block;width:100%;height:480px;border:none;border-radius:8px;margin-top:12px;"
+        id="ghl-checklist-iframe"
+        data-form-id="XXhUvUlNg0LWTskUG0u3"
+        data-layout-iframe-id="ghl-checklist-iframe"
+        title="Checklist letöltés">
+      </iframe>
+    </div>
+  </div>
+
   <!-- ═══ EMAIL LETÖLTÉS MODAL ═══ -->
   <div class="dl-modal" id="dl-modal" role="dialog" aria-modal="true">
     <div class="dl-modal-box">
@@ -982,6 +996,17 @@
     mobNav.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => { burger.classList.remove('open'); mobNav.classList.remove('open'); });
     });
+
+    // ── GHL modal (1. gomb — checklist) ──
+    const ghlModal = document.getElementById('ghl-modal');
+    const ghlClose = document.getElementById('ghl-modal-close');
+
+    document.getElementById('btn-checklist').addEventListener('click', () => {
+      ghlModal.classList.add('open');
+    });
+
+    ghlClose.addEventListener('click', () => ghlModal.classList.remove('open'));
+    ghlModal.addEventListener('click', e => { if (e.target === ghlModal) ghlModal.classList.remove('open'); });
 
     // ── Email letöltés modal ──
     /*
@@ -1102,5 +1127,7 @@
       }
     });
   </script>
+  <!-- GHL form embed script — az iframe rendereléshez szükséges -->
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </body>
 </html>
