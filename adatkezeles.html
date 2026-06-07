@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SN Digital adatkezelési tájékoztató — GDPR megfelelőség">
+  <title>Adatkezelési Tájékoztató — SN Digital</title>
+
+  <link rel="icon" type="image/png" href="sndigital-icon-512.png">
+  <link rel="apple-touch-icon" href="sndigital-icon-512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --violet: #7C5CFF;
+      --ink:    #0A0B16;
+      --cyan:   #22D3EE;
+      --white:  #FFFFFF;
+      --card:   #0F1020;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10,11,22,0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(124,92,255,0.2);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-back {
+      background: transparent;
+      border: 1px solid rgba(124,92,255,0.5);
+      color: rgba(255,255,255,0.7);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-back:hover {
+      border-color: var(--violet);
+      color: var(--white);
+      background: rgba(124,92,255,0.1);
+    }
+
+    /* ─── HERO STRIP ─── */
+    .page-hero {
+      padding: 72px 40px 56px;
+      border-bottom: 1px solid rgba(124,92,255,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(124,92,255,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .page-hero .meta {
+      color: rgba(255,255,255,0.45);
+      font-size: 14px;
+    }
+
+    /* ─── CONTENT ─── */
+    .content-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 64px 40px 100px;
+    }
+
+    /* section blocks */
+    .block {
+      background: var(--card);
+      border: 1px solid rgba(124,92,255,0.15);
+      border-radius: 14px;
+      padding: 36px 40px;
+      margin-bottom: 24px;
+    }
+
+    .block:last-child { margin-bottom: 0; }
+
+    .block h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .block h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: rgba(124,92,255,0.2);
+      border: 1px solid rgba(124,92,255,0.4);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--violet);
+      flex-shrink: 0;
+    }
+
+    .block p {
+      color: rgba(255,255,255,0.75);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .block p:last-child { margin-bottom: 0; }
+
+    .block ul, .block ol {
+      color: rgba(255,255,255,0.75);
+      font-size: 16px;
+      line-height: 1.8;
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .block li { margin-bottom: 6px; }
+
+    .block strong { color: var(--white); font-weight: 600; }
+
+    .block a {
+      color: var(--violet);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(124,92,255,0.4);
+      transition: border-color 0.2s;
+    }
+
+    .block a:hover { border-color: var(--violet); }
+
+    /* info pill */
+    .info-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34,211,238,0.08);
+      border: 1px solid rgba(34,211,238,0.25);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+    }
+
+    .info-pill span { color: var(--cyan); font-weight: 600; }
+
+    /* data table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 15px;
+    }
+
+    .data-table th {
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(124,92,255,0.2);
+    }
+
+    .data-table td {
+      color: rgba(255,255,255,0.75);
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .data-table td:first-child { color: var(--white); font-weight: 500; }
+
+    /* rights grid */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .right-item {
+      background: rgba(124,92,255,0.06);
+      border: 1px solid rgba(124,92,255,0.15);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .right-item .r-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .right-item .r-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    /* contact card */
+    .contact-card {
+      background: rgba(124,92,255,0.08);
+      border: 1px solid rgba(124,92,255,0.3);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+
+    .contact-card .cc-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .contact-card .cc-row {
+      display: flex;
+      gap: 8px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 6px;
+    }
+
+    .contact-card .cc-label {
+      color: rgba(255,255,255,0.4);
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+
+    .contact-card .cc-value { color: rgba(255,255,255,0.85); }
+    .contact-card .cc-value a { color: var(--violet); text-decoration: none; }
+
+    /* placeholder highlight */
+    .ph {
+      background: rgba(34,211,238,0.1);
+      border: 1px dashed rgba(34,211,238,0.4);
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: var(--cyan);
+      font-style: italic;
+      font-size: 0.9em;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid rgba(124,92,255,0.15);
+      padding: 32px 40px;
+      text-align: center;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.35);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover { color: var(--violet); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-inner { padding: 14px 20px; }
+      .nav-logo img { height: 30px; }
+
+      .page-hero { padding: 48px 24px 40px; }
+      .page-hero h1 { font-size: 32px; }
+
+      .content-wrap { padding: 40px 20px 72px; }
+
+      .block { padding: 24px 22px; }
+
+      .data-table { display: block; overflow-x: auto; }
+
+      .rights-grid { grid-template-columns: 1fr; }
+
+      footer { padding: 24px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .page-hero h1 { font-size: 26px; }
+      .block h2 { font-size: 17px; }
+      .content-wrap { padding: 28px 16px 60px; }
+      .block { padding: 20px 18px; }
+
+      .contact-card .cc-row { flex-direction: column; gap: 2px; }
+      .contact-card .cc-label { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="sndigital-lockup-1x.png" alt="SN Digital" loading="eager">
+      </a>
+      <a href="index.html" class="nav-back">← Vissza a főoldalra</a>
+    </div>
+  </header>
+
+  <!-- HERO STRIP -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="tag">Jogi dokumentum</div>
+      <h1>Adatkezelési Tájékoztató</h1>
+      <p class="meta">Hatályos: 2026. január 1. &nbsp;·&nbsp; Utolsó módosítás: 2026. január 1.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <main class="content-wrap">
+
+    <!-- 1. Bevezető -->
+    <div class="block">
+      <h2><span class="num">1</span> Bevezető</h2>
+      <p>
+        Az <strong>SN Digital</strong> (a továbbiakban: „Adatkezelő") elkötelezett ügyfelei és partnerei személyes adatainak védelme iránt.
+        Jelen tájékoztató a természetes személyek személyes adatainak kezeléséről és az ilyen adatok szabad áramlásáról szóló
+        <strong>2016/679/EU rendelet (GDPR)</strong>, valamint az
+        <strong>információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény (Infotv.)</strong>
+        rendelkezéseivel összhangban készült.
+      </p>
+      <p>
+        A tájékoztató hatálya kiterjed az <strong>sndigital.hu</strong> weboldalon és az ahhoz kapcsolódó foglalási rendszeren keresztül kezelt személyes adatokra.
+      </p>
+    </div>
+
+    <!-- 2. Az Adatkezelő adatai -->
+    <div class="block">
+      <h2><span class="num">2</span> Az adatkezelő adatai</h2>
+      <div class="contact-card">
+        <div class="cc-name">SN Digital</div>
+        <div class="cc-row">
+          <span class="cc-label">Teljes név:</span>
+          <span class="cc-value"><span class="ph">pl. Noel Siva János e.v. / SN Digital Kft.</span></span>
+        </div>
+        <div class="cc-row">
+          <span class="cc-label">Székhely:</span>
+          <span class="cc-value"><span class="ph">pl. 1234 Budapest, Példa utca 1.</span></span>
+        </div>
+        <div class="cc-row">
+          <span class="cc-label">Adószám:</span>
+          <span class="cc-value"><span class="ph">12345678-1-42</span></span>
+        </div>
+        <div class="cc-row">
+          <span class="cc-label">Nyilv. szám:</span>
+          <span class="cc-value"><span class="ph">Cégjegyzékszám vagy egyéni vállalkozói nyilvántartási szám</span></span>
+        </div>
+        <div class="cc-row">
+          <span class="cc-label">E-mail:</span>
+          <span class="cc-value"><a href="mailto:noel@sndigital.hu">noel@sndigital.hu</a></span>
+        </div>
+        <div class="cc-row">
+          <span class="cc-label">Weboldal:</span>
+          <span class="cc-value">sndigital.hu</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Kezelt adatok köre -->
+    <div class="block">
+      <h2><span class="num">3</span> A kezelt személyes adatok köre és célja</h2>
+      <p>Az alábbi táblázat összefoglalja, hogy milyen adatokat gyűjtünk, miért és meddig őrizzük meg azokat.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Adat</th>
+            <th>Cél</th>
+            <th>Jogalap</th>
+            <th>Megőrzési idő</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Név</td>
+            <td>Időpontfoglalás, kapcsolattartás</td>
+            <td>Szerződés teljesítése (GDPR 6. cikk (1) b)</td>
+            <td>5 év</td>
+          </tr>
+          <tr>
+            <td>E-mail cím</td>
+            <td>Foglalás visszaigazolása, kommunikáció</td>
+            <td>Szerződés teljesítése (GDPR 6. cikk (1) b)</td>
+            <td>5 év</td>
+          </tr>
+          <tr>
+            <td>Telefonszám</td>
+            <td>Visszahívás, emlékeztető küldése</td>
+            <td>Hozzájárulás (GDPR 6. cikk (1) a)</td>
+            <td>Hozzájárulás visszavonásáig</td>
+          </tr>
+          <tr>
+            <td>Üzenet / megjegyzés</td>
+            <td>Az igény pontosabb megértése</td>
+            <td>Jogos érdek (GDPR 6. cikk (1) f)</td>
+            <td>2 év</td>
+          </tr>
+          <tr>
+            <td>IP-cím, böngésző-adatok</td>
+            <td>Biztonság, hibakeresés, analitika</td>
+            <td>Jogos érdek (GDPR 6. cikk (1) f)</td>
+            <td>90 nap</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. Adatfeldolgozók -->
+    <div class="block">
+      <h2><span class="num">4</span> Adatfeldolgozók és harmadik felek</h2>
+      <p>Az adatkezelő az alábbi harmadik felek szolgáltatásait veszi igénybe, amelyek adatfeldolgozóként járnak el:</p>
+      <ul>
+        <li>
+          <strong>HighLevel / LeadConnector</strong> — időpontfoglalási rendszer és CRM.
+          Székhely: USA. Adatvédelmi tájékoztató: <a href="https://www.gohighlevel.com/privacy-policy" target="_blank" rel="noopener">gohighlevel.com/privacy-policy</a>.
+          Az adattovábbítás alapja: EU standard szerződéses klauzulák (SCC).
+        </li>
+        <li>
+          <strong>Vercel Inc.</strong> — webtárhely. Székhely: USA.
+          Adatvédelmi tájékoztató: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a>.
+        </li>
+        <li>
+          <strong>Google LLC</strong> — Google Fonts betöltése (betűtípusok). Az IP-cím átmenetileg naplózásra kerülhet.
+          Adatvédelmi tájékoztató: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
+        </li>
+      </ul>
+    </div>
+
+    <!-- 5. Sütik -->
+    <div class="block">
+      <h2><span class="num">5</span> Sütik (cookie-k)</h2>
+      <div class="info-pill"><span>ℹ</span> Ez az oldal minimális sütihasználattal működik.</div>
+      <p>
+        A weboldal kizárólag <strong>technikailag szükséges</strong> sütiket alkalmaz a foglalási widget működéséhez.
+        Marketing vagy nyomkövető sütiket nem használunk.
+        A böngésző sütikezelési beállításaiból bármikor törölhető a tárolt adat.
+      </p>
+    </div>
+
+    <!-- 6. Az érintett jogai -->
+    <div class="block">
+      <h2><span class="num">6</span> Az érintett jogai</h2>
+      <p>A GDPR alapján az alábbi jogokat gyakorolhatja személyes adataival kapcsolatban:</p>
+      <div class="rights-grid">
+        <div class="right-item">
+          <div class="r-title">Hozzáférési jog</div>
+          <div class="r-desc">Tájékoztatást kérhet arról, hogy milyen adatait kezeljük.</div>
+        </div>
+        <div class="right-item">
+          <div class="r-title">Helyesbítési jog</div>
+          <div class="r-desc">Kérheti pontatlan adatai javítását.</div>
+        </div>
+        <div class="right-item">
+          <div class="r-title">Törlési jog</div>
+          <div class="r-desc">Kérheti adatai törlését, ha az adatkezelés már nem szükséges.</div>
+        </div>
+        <div class="right-item">
+          <div class="r-title">Korlátozáshoz való jog</div>
+          <div class="r-desc">Kérheti az adatkezelés korlátozását meghatározott esetekben.</div>
+        </div>
+        <div class="right-item">
+          <div class="r-title">Adathordozhatóság</div>
+          <div class="r-desc">Géppel olvasható formátumban kérheti adatait.</div>
+        </div>
+        <div class="right-item">
+          <div class="r-title">Tiltakozási jog</div>
+          <div class="r-desc">Jogos érdeken alapuló kezelés ellen tiltakozhat.</div>
+        </div>
+      </div>
+      <p style="margin-top: 20px;">
+        Jogai gyakorlásához írjon a <a href="mailto:noel@sndigital.hu">noel@sndigital.hu</a> e-mail-címre.
+        A beérkező kérelemre <strong>30 napon belül</strong> válaszolunk.
+      </p>
+    </div>
+
+    <!-- 7. Hozzájárulás visszavonása -->
+    <div class="block">
+      <h2><span class="num">7</span> Hozzájárulás visszavonása</h2>
+      <p>
+        Ha adatkezelésünk hozzájáruláson alapul, azt bármikor visszavonhatja — ez nem érinti a visszavonás előtt végzett adatkezelés jogszerűségét.
+        A visszavonáshoz írjon a <a href="mailto:noel@sndigital.hu">noel@sndigital.hu</a> e-mail-címre.
+      </p>
+    </div>
+
+    <!-- 8. Jogorvoslat -->
+    <div class="block">
+      <h2><span class="num">8</span> Jogorvoslat</h2>
+      <p>
+        Ha úgy véli, adatai kezelése jogszabályt sért, panaszt nyújthat be a felügyeleti hatósághoz:
+      </p>
+      <ul>
+        <li><strong>Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</strong></li>
+        <li>Cím: 1055 Budapest, Falk Miksa utca 9–11.</li>
+        <li>Weboldal: <a href="https://naih.hu" target="_blank" rel="noopener">naih.hu</a></li>
+        <li>E-mail: <a href="mailto:ugyfelszolgalat@naih.hu">ugyfelszolgalat@naih.hu</a></li>
+        <li>Telefon: +36 (1) 391-1400</li>
+      </ul>
+      <p style="margin-top: 12px;">
+        Bíróság előtt is érvényesítheti jogait. A peres eljárás megindítható az érintett lakóhelye szerinti törvényszéken.
+      </p>
+    </div>
+
+    <!-- 9. Módosítás -->
+    <div class="block">
+      <h2><span class="num">9</span> A tájékoztató módosítása</h2>
+      <p>
+        Az Adatkezelő fenntartja a jogot, hogy jelen tájékoztatót szükség esetén módosítsa.
+        Lényeges változások esetén az oldalon jól látható módon tájékoztatjuk az érintetteket.
+        A tájékoztató aktuális változata mindig a <strong>sndigital.hu/adatkezeles.html</strong> oldalon érhető el.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 SN Digital — Minden jog fenntartva</p>
+    <p><a href="mailto:noel@sndigital.hu">noel@sndigital.hu</a> &nbsp;·&nbsp; <a href="index.html">Főoldal</a></p>
+  </footer>
+
+</body>
+</html>
