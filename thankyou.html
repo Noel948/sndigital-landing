@@ -108,6 +108,92 @@
     }
     .mobile-nav a:last-child { border-bottom: none; }
 
+    /* ─── ANNOUNCEMENT BAR ─── */
+    @keyframes pulse-glow {
+      0%   { box-shadow: 0 0 10px rgba(124,92,255,0.5); }
+      50%  { box-shadow: 0 0 24px rgba(124,92,255,1), 0 0 48px rgba(124,92,255,0.4); }
+      100% { box-shadow: 0 0 10px rgba(124,92,255,0.5); }
+    }
+
+    .announce-bar {
+      background: linear-gradient(90deg, #1a0f3e 0%, #0e0a28 40%, #0e1428 60%, #0a1a28 100%);
+      border-bottom: 1px solid rgba(124,92,255,0.35);
+      padding: 13px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .announce-bar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(124,92,255,0.08), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%   { left: -60%; }
+      100% { left: 140%; }
+    }
+
+    .announce-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .announce-pulse {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(124,92,255,0.15);
+      border: 1.5px solid rgba(124,92,255,0.6);
+      font-size: 14px;
+      flex-shrink: 0;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .announce-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+    }
+
+    .announce-text strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .announce-text .ac { color: var(--cyan); font-weight: 700; }
+
+    .announce-tag {
+      display: inline-block;
+      background: rgba(124,92,255,0.2);
+      border: 1px solid rgba(124,92,255,0.5);
+      border-radius: 100px;
+      padding: 3px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: rgba(124,92,255,0.95);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      .announce-bar { padding: 12px 16px; }
+      .announce-text { font-size: 13px; }
+    }
+
     /* ─── DIVIDER ─── */
     .divider {
       height: 1px;
@@ -504,6 +590,19 @@
   </style>
 </head>
 <body>
+
+  <!-- ═══ ANNOUNCEMENT BAR ═══ -->
+  <div class="announce-bar">
+    <div class="announce-inner">
+      <span class="announce-tag">⏱ Fontos</span>
+      <p class="announce-text">
+        <strong>Olvasd végig ezt az oldalt</strong> —
+        maximum <span class="ac">10 perc</span>, de minden fontos infót megkapsz,
+        ami a találkozónk előtt számít.
+      </p>
+      <span class="announce-pulse">👇</span>
+    </div>
+  </div>
 
   <!-- ═══ NAV ═══ -->
   <header class="nav">
