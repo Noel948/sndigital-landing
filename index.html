@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SN Digital — Autószerelő cégeknek építünk teljes ügyfélszerző online jelenlétet AI-alapú háttérrendszerrel.">
+  <meta property="og:title" content="SN Digital — Autószerelő AI Ügynökség">
+  <meta property="og:description" content="Nem veszel el több érdeklődőt. Minden hívás, minden visszajelzés, minden foglalás — automatikusan kezelve.">
+  <meta property="og:type" content="website">
+  <title>SN Digital — Autószerelő AI Ügynökség</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── VARIABLES ─── */
+    :root {
+      --violet: #7C5CFF;
+      --ink:    #0A0B16;
+      --cyan:   #22D3EE;
+      --white:  #FFFFFF;
+      --card:   #0F1020;
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ─── CTA BUTTON ─── */
+    @keyframes pulse-glow {
+      0%   { box-shadow: 0 0 15px rgba(124,92,255,0.4); }
+      50%  { box-shadow: 0 0 35px rgba(124,92,255,0.85), 0 0 65px rgba(124,92,255,0.3); }
+      100% { box-shadow: 0 0 15px rgba(124,92,255,0.4); }
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #7C5CFF 0%, #9b7fff 100%);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 40px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      animation: pulse-glow 2s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      animation: none;
+      box-shadow: 0 0 55px rgba(124,92,255,0.95), 0 0 90px rgba(124,92,255,0.4);
+      transform: translateY(-3px);
+    }
+
+    /* ─── NAVIGATION ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10,11,22,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(124,92,255,0.2);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-logo .sn { color: var(--violet); }
+
+    .nav-outline-btn {
+      background: transparent;
+      border: 1px solid var(--violet);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-outline-btn:hover {
+      background: rgba(124,92,255,0.14);
+      box-shadow: 0 0 20px rgba(124,92,255,0.3);
+    }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      padding: 0 20px 20px;
+    }
+
+    .mobile-nav.open { display: block; }
+
+    .mobile-nav a {
+      display: block;
+      padding: 14px 0;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(124,92,255,0.1);
+    }
+
+    .mobile-nav a:last-child {
+      border-bottom: none;
+      color: var(--violet);
+      font-weight: 700;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, #7C5CFF 38%, #22D3EE 62%, transparent 100%);
+      opacity: 0.55;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      padding: 120px 40px 140px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .hero-glow-center {
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(124,92,255,0.15) 0%, transparent 65%);
+    }
+
+    .hero-glow-tr {
+      top: -120px; right: -120px;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(34,211,238,0.08) 0%, transparent 65%);
+    }
+
+    .hero-body {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border: 1px solid rgba(124,92,255,0.6);
+      border-radius: 100px;
+      background: rgba(124,92,255,0.1);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 36px;
+      box-shadow: 0 0 24px rgba(124,92,255,0.18), inset 0 0 20px rgba(124,92,255,0.05);
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 .vc { color: var(--violet); }
+
+    .hero-sub {
+      font-size: 20px;
+      color: rgba(255,255,255,0.7);
+      max-width: 610px;
+      margin: 0 auto 52px;
+      line-height: 1.78;
+    }
+
+    /* ─── SECTIONS ─── */
+    .section {
+      padding: 100px 40px;
+    }
+
+    .section-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-head h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .vc { color: var(--violet); }
+    .cc { color: var(--cyan); }
+
+    /* ─── CARDS ─── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 52px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 52px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(124,92,255,0.2);
+      border-radius: 16px;
+      padding: 40px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--violet);
+      box-shadow: 0 0 40px rgba(124,92,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: rgba(255,255,255,0.8);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .cta-center { text-align: center; }
+
+    /* ─── CALENDAR ─── */
+    .cal-subtitle {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--white);
+      margin-top: 12px;
+    }
+
+    .cal-desc {
+      color: rgba(255,255,255,0.8);
+      font-size: 18px;
+      line-height: 1.75;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 52px;
+    }
+
+    .cal-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid rgba(124,92,255,0.3);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 0 60px rgba(124,92,255,0.1);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid rgba(124,92,255,0.15);
+      padding: 40px;
+      text-align: center;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.4);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover { color: var(--violet); }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner { padding: 16px 20px; }
+      .nav-outline-btn { display: none; }
+      .hamburger { display: flex; }
+
+      .hero { padding: 80px 20px 100px; }
+      .hero h1 { font-size: 40px; letter-spacing: -0.5px; }
+      .hero-sub { font-size: 17px; }
+
+      .section { padding: 72px 20px; }
+      .section-head h2 { font-size: 32px; }
+
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+
+      .cal-subtitle { font-size: 24px; }
+      .cal-wrap { padding: 20px; }
+
+      footer { padding: 32px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 30px; }
+      .hero-badge { font-size: 12px; padding: 7px 14px; }
+      .section-head h2 { font-size: 26px; }
+      .card { padding: 28px 22px; }
+
+      .cta-btn {
+        width: 100%;
+        text-align: center;
+        padding: 18px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo"><span class="sn">SN</span> Digital</a>
+      <a href="#calendar" class="nav-outline-btn">Időpontot foglalok</a>
+      <button class="hamburger" id="burger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mob-nav">
+      <a href="#services">Szolgáltatások</a>
+      <a href="#why-us">Miért mi?</a>
+      <a href="#calendar">Időpontot foglalok →</a>
+    </nav>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="top">
+    <div class="hero-glow hero-glow-center" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-tr"     aria-hidden="true"></div>
+
+    <div class="hero-body">
+      <div class="hero-badge reveal">
+        ⚡ #1 Autószerelő AI Ügynökség Magyarországon
+      </div>
+      <h1 class="reveal">
+        Autószerelő cégeknek építünk<br>
+        teljes <span class="vc">ügyfélszerző</span> online jelenlétet.
+      </h1>
+      <p class="hero-sub reveal">
+        Nem veszel el több érdeklődőt. Minden hívás, minden visszajelzés,<br>
+        minden foglalás — automatikusan kezelve.
+      </p>
+      <a href="#calendar" class="cta-btn reveal">Foglalj időpontot →</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="section" id="services">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2 class="reveal">Mit kapsz tőlünk?</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card reveal">
+          <span class="card-icon">🌐</span>
+          <h3>Weboldal</h3>
+          <p>Nem dizájnoldalt készítünk, hanem olyan weboldalt, ami érdeklődőket alakít át jelentkezőkké, és össze van kötve a teljes rendszerrel.</p>
+        </div>
+        <div class="card reveal d1">
+          <span class="card-icon">🤖</span>
+          <h3>AI háttérrendszer</h3>
+          <p>A weboldal mögött egy személyre szabott szoftver dolgozik, ami kezeli a jelentkezéseket, visszahívásokat és az ügyfélutat – manuális munka nélkül.</p>
+        </div>
+      </div>
+
+      <div class="cta-center reveal">
+        <a href="#calendar" class="cta-btn">Érdekel — beszéljünk! →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ WHY US ═══ -->
+  <section class="section" id="why-us">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2 class="reveal">
+          Miért minket válassz,<br>
+          ha <span class="cc">Autószerelő</span> céged van?
+        </h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <span class="card-icon">🎯</span>
+          <h3>Tudás</h3>
+          <p>Kizárólag autószerelő cégekre építünk online jelenlétet, ezért pontosan tudjuk, hogyan lesz egy látogatóból érdeklődő, majd ügyfél.</p>
+        </div>
+        <div class="card reveal d1">
+          <span class="card-icon">⚡</span>
+          <h3>Innováció</h3>
+          <p>Nem statikus weboldalt kapsz, hanem folyamatosan fejleszthető rendszert: automatizmusokkal, AI-val és mérhető ügyfélúttal.</p>
+        </div>
+        <div class="card reveal d2">
+          <span class="card-icon">🤝</span>
+          <h3>Megbízhatóság</h3>
+          <p>Nálunk nincs mellébeszélés – átlátható riportokkal és folyamatos kommunikációval dolgozunk, hosszú távú partnerségben gondolkodunk.</p>
+        </div>
+      </div>
+
+      <div class="cta-center reveal">
+        <a href="#calendar" class="cta-btn">Időpontot foglalok →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ CALENDAR ═══ -->
+  <section class="section" id="calendar">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2 class="reveal">Felkeltettük az érdeklődésedet?</h2>
+        <p class="cal-subtitle reveal">Beszéljünk egyet <span class="cc">online</span>! :)</p>
+      </div>
+
+      <p class="cal-desc reveal">
+        Egy gyors 30 perces beszélgetés, amiben megállapítjuk,<br>
+        hogyan tudunk neked legjobban segíteni.
+      </p>
+
+      <div class="cal-wrap reveal">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/booking/ZkYKeI0FV1MfmYAaPdjv"
+          style="width: 100%; border: none; overflow: hidden; min-height: 700px;"
+          scrolling="no"
+          id="ZkYKeI0FV1MfmYAaPdjv_1780836269744">
+        </iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <p>© 2026 SN Digital — Minden jog fenntartva</p>
+    <p><a href="mailto:noel@sndigital.hu">noel@sndigital.hu</a></p>
+  </footer>
+
+  <!-- ═══ JS ═══ -->
+  <script>
+    // ── Scroll reveal ──
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Animate hero on load (stagger)
+    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), 120 + i * 130);
+    });
+
+    // ── Hamburger ──
+    const burger  = document.getElementById('burger');
+    const mobNav  = document.getElementById('mob-nav');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      mobNav.classList.toggle('open');
+    });
+
+    mobNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        mobNav.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
