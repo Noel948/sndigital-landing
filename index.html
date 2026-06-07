@@ -452,6 +452,74 @@
       .grid-3 { grid-template-columns: 1fr 1fr; }
     }
 
+    /* ─── PROCESS SECTION ─── */
+    .process-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .proc-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--card);
+      border: 1px solid rgba(124,92,255,0.15);
+      border-radius: 12px;
+      padding: 22px 24px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .proc-step:hover { border-color: rgba(124,92,255,0.4); transform: translateY(-2px); }
+
+    .proc-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: rgba(124,92,255,0.3);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 32px;
+    }
+
+    .proc-body h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .proc-body p {
+      color: rgba(255,255,255,0.62);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .reassure-strip {
+      background: rgba(124,92,255,0.06);
+      border: 1px solid rgba(124,92,255,0.18);
+      border-left: 3px solid var(--violet);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 28px;
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reassure-strip .rs-icon { font-size: 28px; flex-shrink: 0; }
+
+    .reassure-strip p {
+      color: rgba(255,255,255,0.72);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .reassure-strip strong { color: var(--white); }
+
     /* ─── TABLET (768px) ─── */
     @media (max-width: 1024px) {
       .bonus-grid { grid-template-columns: 1fr 1fr; }
@@ -472,7 +540,7 @@
       .section-head { margin-bottom: 48px; }
       .section-head h2 { font-size: 30px; }
 
-      .grid-2, .grid-3, .bonus-grid { grid-template-columns: 1fr; gap: 16px; }
+      .grid-2, .grid-3, .bonus-grid, .process-steps { grid-template-columns: 1fr; gap: 16px; }
 
       .cal-subtitle { font-size: 22px; }
       .cal-wrap { padding: 20px; }
@@ -565,12 +633,12 @@
         <div class="card reveal">
           <span class="card-icon">🌐</span>
           <h3>Weboldal</h3>
-          <p>Nem dizájnoldalt készítünk, hanem olyan weboldalt, ami érdeklődőket alakít át jelentkezőkké, és össze van kötve a teljes rendszerrel.</p>
+          <p>Nem szép képeket rakunk fel az internetre. Olyan weboldalt csinálunk, amire aki rátalál — az felhívja a szervizedet, nem a konkurenciádat.</p>
         </div>
         <div class="card reveal d1">
           <span class="card-icon">🤖</span>
           <h3>AI háttérrendszer</h3>
-          <p>A weboldal mögött egy személyre szabott szoftver dolgozik, ami kezeli a jelentkezéseket, visszahívásokat és az ügyfélutat – manuális munka nélkül.</p>
+          <p>Mögötte fut egy okos rendszer. Ha valaki foglal, visszahívást kér vagy üzenetet hagy — mindent automatikusan kezel. Te csak a szervizelésre figyelj.</p>
         </div>
       </div>
 
@@ -596,17 +664,17 @@
         <div class="card reveal">
           <span class="card-icon">🎯</span>
           <h3>Tudás</h3>
-          <p>Kizárólag autószerelő cégekre építünk online jelenlétet, ezért pontosan tudjuk, hogyan lesz egy látogatóból érdeklődő, majd ügyfél.</p>
+          <p>Csak autószerelőkkel dolgozunk. Pontosan tudjuk mi kell ahhoz, hogy aki az interneten rád talál — az felhívjon téged, ne a konkurenciádat.</p>
         </div>
         <div class="card reveal d1">
           <span class="card-icon">⚡</span>
           <h3>Innováció</h3>
-          <p>Nem statikus weboldalt kapsz, hanem folyamatosan fejleszthető rendszert: automatizmusokkal, AI-val és mérhető ügyfélúttal.</p>
+          <p>Nem egy merev oldalt kapsz, amit aztán senki nem nyúl hozzá. Egy élő rendszert, ami fejlődik — és mindig pontosan tudod hány új ügyfél érkezett belőle.</p>
         </div>
         <div class="card reveal d2">
           <span class="card-icon">🤝</span>
           <h3>Megbízhatóság</h3>
-          <p>Nálunk nincs mellébeszélés – átlátható riportokkal és folyamatos kommunikációval dolgozunk, hosszú távú partnerségben gondolkodunk.</p>
+          <p>Nálunk nincs mellébeszélés. Mindig tudod mi folyik, mit csináltunk, mi az eredmény — és ha kérdésed van, elérhető vagyunk.</p>
         </div>
       </div>
 
@@ -625,8 +693,8 @@
         <h2 class="reveal">Nem csak egy meetinget kapsz</h2>
         <p class="section-sub reveal">
           Mindenki tud meetinget tartani.<br>
-          Mi előre adunk valamit — hogy lásd mennyit érünk,<br>
-          még mielőtt bármit fizetsz.
+          Nálunk a segítség az első — még a találkozó előtt<br>
+          kapsz tőlünk valamit, amit azonnal tudsz használni.
         </p>
       </div>
 
@@ -655,6 +723,64 @@
 
       <div class="cta-center reveal">
         <a href="#calendar" class="cta-btn">Foglalok és megkapom az ajándékokat →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ FOLYAMAT — 30 perc, semmi kötelezettség ═══ -->
+  <section class="section" id="folyamat">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2 class="reveal">Mit fogunk csinálni ezen a 30 percen?</h2>
+        <p class="section-sub reveal">
+          Ez nem egy értékesítői hívás. Végigmegyünk a szervized helyzetén —<br>
+          és ha nem érzed, hogy tudunk segíteni, elköszönünk jó szívvel.
+        </p>
+      </div>
+
+      <div class="process-steps">
+        <div class="proc-step reveal">
+          <span class="proc-num">1</span>
+          <div class="proc-body">
+            <h3>👂 Meghallgatunk</h3>
+            <p>Elmondod hol tart most a szerviz — hány ügyfél jön, honnan érkeznek, mi hiányzik. Mi csak kérdezünk.</p>
+          </div>
+        </div>
+        <div class="proc-step reveal d1">
+          <span class="proc-num">2</span>
+          <div class="proc-body">
+            <h3>🔍 Megnézzük együtt</h3>
+            <p>Megosztom a képernyőt és megmutatom mit látnak az emberek a szervizedről az interneten — mielőtt felhívnak vagy épp nem.</p>
+          </div>
+        </div>
+        <div class="proc-step reveal">
+          <span class="proc-num">3</span>
+          <div class="proc-body">
+            <h3>💡 Megmondjuk egyenesen</h3>
+            <p>Ha látunk helyet ahol tudunk segíteni — megmondjuk konkrétan. Ha nem látunk lehetőséget — azt is megmondjuk.</p>
+          </div>
+        </div>
+        <div class="proc-step reveal d1">
+          <span class="proc-num">4</span>
+          <div class="proc-body">
+            <h3>🤝 Te döntesz</h3>
+            <p>Ha tetszik amit hallasz — folytatjuk. Ha nem, vagy még gondolkodni szeretnél — semmi gond, nincs semmi kötelezettség.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reassure-strip reveal">
+        <span class="rs-icon">🛡️</span>
+        <p>
+          <strong>Nincs szerződés. Nincs nyomás. Nincs "de ha most dönt..." dumálás.</strong><br>
+          Csak egy őszinte 30 perc — és akárhogy döntesz, hazamész valamivel.
+        </p>
+      </div>
+
+      <div class="cta-center reveal">
+        <a href="#calendar" class="cta-btn">Rendben, foglalok egy 30 perces hívást →</a>
       </div>
     </div>
   </section>
