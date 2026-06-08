@@ -394,6 +394,88 @@
       margin-bottom: 32px;
     }
 
+    /* ── Founder section ── */
+    #founder { padding: 80px 0; }
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .founder-photo-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .founder-photo {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      border: 2px solid rgba(124,92,255,0.35);
+      box-shadow: 0 0 48px rgba(124,92,255,0.25), 0 0 96px rgba(34,211,238,0.08);
+      transition: box-shadow 0.4s ease;
+    }
+    .founder-photo-wrap:hover .founder-photo {
+      box-shadow: 0 0 64px rgba(124,92,255,0.4), 0 0 120px rgba(34,211,238,0.15);
+    }
+    .founder-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at bottom left, rgba(34,211,238,0.07) 0%, transparent 65%);
+      pointer-events: none; border-radius: 20px;
+    }
+    .founder-badge {
+      display: inline-block;
+      background: rgba(124,92,255,0.12);
+      border: 1px solid rgba(124,92,255,0.3);
+      color: var(--violet);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .founder-quote {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+      font-weight: 700;
+      color: var(--violet);
+      line-height: 1.4;
+      margin: 0 0 28px 0;
+      border-left: 3px solid var(--violet);
+      padding-left: 20px;
+    }
+    .founder-bio {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin: 0 0 16px 0;
+    }
+    .founder-cta-line {
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+    .founder-name-block {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .founder-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .founder-title {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.03em;
+    }
+
     .bonus-card {
       background: var(--card);
       border: 1px solid rgba(34,211,238,0.2);
@@ -542,6 +624,9 @@
 
       .grid-2, .grid-3, .bonus-grid, .process-steps { grid-template-columns: 1fr; gap: 16px; }
 
+      .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+      .founder-quote { font-size: 1.2rem; }
+
       .cal-subtitle { font-size: 22px; }
       .cal-wrap { padding: 20px; }
       .cal-desc { font-size: 16px; }
@@ -680,6 +765,39 @@
 
       <div class="cta-center reveal">
         <a href="#calendar" class="cta-btn">Időpontot foglalok →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ FOUNDER ═══ -->
+  <section class="section" id="founder">
+    <div class="section-wrap">
+      <div class="founder-grid">
+        <div class="founder-photo-wrap reveal">
+          <img src="website_picture.png" alt="Noel Sivák – SN Digital alapítója" class="founder-photo" />
+          <div class="founder-glow"></div>
+        </div>
+        <div class="founder-text reveal d1">
+          <span class="founder-badge">Az alapítóról</span>
+          <blockquote class="founder-quote">
+            „Az AI nem a jövő — már most alakítja az életed, csak nem mindenki veszi észre."
+          </blockquote>
+          <p class="founder-bio">
+            Noel vagyok, az SN Digital alapítója. 20 éves koromra abban a világban nőttem fel, ahol a rendszerek, az automatizáció és az AI nem különleges technológia — hanem hétköznapi valóság.
+          </p>
+          <p class="founder-bio">
+            Azok a vállalkozások, amelyek most kezdik el használni ezeket az eszközöket, 2-3 éven belül messze megelőzik azokat, akik kivárnak. Ez nem félelem — ez egyszerűen a tény.
+          </p>
+          <p class="founder-bio founder-cta-line">
+            Ha most lép, nem lemarad. Ha vár, egyre nehezebb lesz behozni a lemaradást.
+          </p>
+          <div class="founder-name-block">
+            <span class="founder-name">Noel Sivák</span>
+            <span class="founder-title">Alapító, SN Digital</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
