@@ -64,6 +64,13 @@
       text-decoration: none; transition: background .2s, transform .2s, box-shadow .2s;
     }
     .nav-btn:hover { background: var(--v2); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(124,92,255,.4); }
+    .demo-nav-btn {
+      background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.4); color: var(--c);
+      font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+      padding: 10px 18px; border-radius: 8px; cursor: pointer;
+      transition: background .2s, box-shadow .2s, transform .2s; white-space: nowrap;
+    }
+    .demo-nav-btn:hover { background: rgba(34,211,238,.18); box-shadow: 0 0 20px rgba(34,211,238,.25); transform: translateY(-1px); }
 
     /* ── HERO ─────────────────────────────────────────────── */
     .hero {
@@ -560,7 +567,10 @@
       <a href="#rendszer">A rendszer</a>
       <a href="#iparag">Iparágak</a>
     </nav>
-    <a href="mailto:noel@sndigital.hu" class="nav-btn">Kapcsolat</a>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="demo-nav-btn" onclick="openVoiceDemo()">🎙 Demo kipróbálása</button>
+      <a href="mailto:noel@sndigital.hu" class="nav-btn">Kapcsolat</a>
+    </div>
   </div>
 </header>
 
@@ -849,6 +859,140 @@
   </div>
 </footer>
 
+<!-- ── VOICE DEMO MODAL ──────────────────────────────────── -->
+<div id="vdemo" class="vdemo-overlay" role="dialog" aria-modal="true" aria-label="AI Demo">
+  <div class="vdemo-box">
+    <div class="vdemo-head">
+      <div class="vdemo-caller">
+        <div class="vdemo-icon">🤖</div>
+        <div>
+          <div class="vdemo-name">SN Digital AI</div>
+          <div class="vdemo-sub" id="vstatus">Kapcsolódás...</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="vdemo-live" id="vlive" style="display:none;">● ÉLŐ</span>
+        <button class="vdemo-close" onclick="closeVoiceDemo()" aria-label="Bezár">✕</button>
+      </div>
+    </div>
+    <div class="vdemo-wave" id="vwave">
+      <div class="vbar"></div><div class="vbar"></div><div class="vbar"></div>
+      <div class="vbar"></div><div class="vbar"></div><div class="vbar"></div>
+      <div class="vbar"></div><div class="vbar"></div><div class="vbar"></div>
+      <div class="vbar"></div><div class="vbar"></div><div class="vbar"></div>
+    </div>
+    <div class="vdemo-transcript" id="vtranscript"></div>
+    <div class="vdemo-controls">
+      <button class="vmic-btn" id="vmicbtn" onclick="toggleVoice()">🎙</button>
+      <p class="vdemo-hint" id="vhint">Nyomj a mikrofon gombra és szólj hozzám</p>
+      <p class="vdemo-nosupport" id="vnosupport" style="display:none;">
+        ⚠️ Chrome vagy Edge böngészőben működik a hangfelismerés.
+      </p>
+    </div>
+    <div class="vdemo-footer">
+      <span>Ez egy szimulált demo — a valódi rendszer ugyanígy működik</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .vdemo-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(8,9,18,.94); backdrop-filter: blur(20px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .vdemo-overlay.open { display: flex; }
+  .vdemo-box {
+    width: 100%; max-width: 440px;
+    background: var(--card);
+    border: 1px solid rgba(124,92,255,.35);
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 0 80px rgba(124,92,255,.2), 0 40px 80px rgba(0,0,0,.5);
+    animation: vslide .35s ease;
+  }
+  @keyframes vslide { from { opacity: 0; transform: scale(.92) translateY(16px); } to { opacity: 1; transform: none; } }
+  .vdemo-head {
+    background: rgba(255,255,255,.03); border-bottom: 1px solid rgba(255,255,255,.06);
+    padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .vdemo-caller { display: flex; align-items: center; gap: 12px; }
+  .vdemo-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: rgba(124,92,255,.15); border: 1px solid rgba(124,92,255,.3);
+    display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+  }
+  .vdemo-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--w); }
+  .vdemo-sub { font-size: 12px; color: var(--sm); margin-top: 2px; }
+  .vdemo-live {
+    font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--c);
+    background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.3);
+    border-radius: 4px; padding: 4px 8px;
+    animation: vlblink 2s ease-in-out infinite;
+  }
+  @keyframes vlblink { 0%,100%{opacity:1;} 50%{opacity:.5;} }
+  .vdemo-close {
+    background: none; border: none; color: var(--m); cursor: pointer;
+    font-size: 18px; line-height: 1; padding: 4px; transition: color .2s;
+  }
+  .vdemo-close:hover { color: var(--w); }
+  .vdemo-wave {
+    display: flex; align-items: center; justify-content: center;
+    gap: 4px; height: 56px; padding: 0 24px;
+    background: rgba(124,92,255,.04);
+  }
+  .vbar {
+    width: 3px; border-radius: 2px; height: 8px;
+    background: rgba(124,92,255,.3);
+    transform-origin: center;
+    transition: height .15s ease;
+  }
+  .vdemo-wave.speaking .vbar {
+    background: var(--v);
+    animation: vwave 1.2s ease-in-out infinite;
+  }
+  .vdemo-wave.listening .vbar {
+    background: var(--c);
+    animation: vwave 0.7s ease-in-out infinite;
+  }
+  .vbar:nth-child(1){animation-delay:0s;height:12px;} .vbar:nth-child(2){animation-delay:.1s;height:24px;}
+  .vbar:nth-child(3){animation-delay:.2s;height:40px;} .vbar:nth-child(4){animation-delay:.05s;height:28px;}
+  .vbar:nth-child(5){animation-delay:.15s;height:50px;} .vbar:nth-child(6){animation-delay:.25s;height:36px;}
+  .vbar:nth-child(7){animation-delay:.1s;height:50px;} .vbar:nth-child(8){animation-delay:.2s;height:40px;}
+  .vbar:nth-child(9){animation-delay:.3s;height:28px;} .vbar:nth-child(10){animation-delay:.05s;height:16px;}
+  .vbar:nth-child(11){animation-delay:.15s;height:32px;} .vbar:nth-child(12){animation-delay:.25s;height:20px;}
+  @keyframes vwave { 0%,100%{transform:scaleY(.2);} 50%{transform:scaleY(1);} }
+  .vdemo-transcript {
+    height: 220px; overflow-y: auto; padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+    scrollbar-width: thin; scrollbar-color: rgba(124,92,255,.3) transparent;
+  }
+  .vbubble { padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.6; max-width: 88%; }
+  .vai { background: rgba(124,92,255,.12); border: 1px solid rgba(124,92,255,.2); color: rgba(255,255,255,.9); align-self: flex-start; border-radius: 4px 12px 12px 12px; }
+  .vuser { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.09); color: var(--m); align-self: flex-end; border-radius: 12px 4px 12px 12px; }
+  .vthinking { color: var(--sm); font-size: 13px; font-style: italic; align-self: flex-start; padding: 8px 14px; }
+  .vdemo-controls { padding: 20px 24px; text-align: center; }
+  .vmic-btn {
+    width: 68px; height: 68px; border-radius: 50%;
+    background: var(--c); border: none; cursor: pointer; font-size: 28px;
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 24px rgba(34,211,238,.35); transition: all .25s;
+  }
+  .vmic-btn:hover { transform: scale(1.08); box-shadow: 0 0 44px rgba(34,211,238,.55); }
+  .vmic-btn.listening {
+    background: #ff4a4a; box-shadow: 0 0 28px rgba(255,74,74,.45);
+    animation: vmic-pulse 1s ease-in-out infinite;
+  }
+  @keyframes vmic-pulse { 0%,100%{box-shadow:0 0 28px rgba(255,74,74,.45);} 50%{box-shadow:0 0 56px rgba(255,74,74,.7);} }
+  .vdemo-hint { font-size: 13px; color: var(--sm); margin-top: 12px; min-height: 20px; transition: all .2s; }
+  .vdemo-nosupport { font-size: 13px; color: rgba(255,180,0,.8); margin-top: 10px; }
+  .vdemo-footer {
+    border-top: 1px solid rgba(255,255,255,.05);
+    padding: 12px 20px; text-align: center;
+    font-size: 11px; color: var(--sm);
+  }
+  @media (max-width: 480px) { .vdemo-box { border-radius: 20px; } .vdemo-head { padding: 16px 18px; } }
+</style>
+
 <script>
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -857,6 +1001,160 @@
   // hero fires immediately
   document.querySelectorAll('.hero .reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('in'), 80 + i * 100);
+  });
+
+  // ── VOICE DEMO ─────────────────────────────────────────
+  let vRecognition = null;
+  let vListening = false;
+  const vSynth = window.speechSynthesis;
+  const vHasSpeech = !!window.SpeechRecognition || !!window.webkitSpeechRecognition;
+  const vHasTTS = !!window.speechSynthesis;
+
+  const vResponses = [
+    { keys: ['klíma','klima','légkondicionál','hűtés'], r: 'Természetesen! Klímaszerelő cégeknek speciális rendszert építünk. Mikor lenne jó egy rövid egyeztetés?' },
+    { keys: ['villany','elektrom','villamos','áram'], r: 'Villanyszerelőknek is dolgoztunk már — tudjuk mi kell. Mikor találkoznánk egy 30 perces hívásra?' },
+    { keys: ['felújít','felújítás','renovál'], r: 'Felújítócégeknek is van tapasztalatunk. Mikor jönne jól egy rövid egyeztetés?' },
+    { keys: ['időpont','foglal','mikor','találkoz'], r: 'Kérjük, töltse ki a naptárat az oldalon — azonnal kap visszaigazolást. Segíthetünk még valamiben?' },
+    { keys: ['ár','mennyi','kerül','fizet','árazás','cost'], r: 'Az árazásról egy személyes egyeztetésen tudunk részletesen beszélni. Az első hívás teljesen ingyenes.' },
+    { keys: ['hogyan','működik','rendszer'], r: 'Az AI hangasszisztens 24 órában fogadja a hívásokat, időpontot foglal és automatikusan utánkövet. Egy komplett rendszer.' },
+    { keys: ['szia','helló','hello','jó napot','jónapot'], r: 'Jó napot! Miben segíthetünk önnek ma?' },
+    { keys: ['köszön','viszlát','bye'], r: 'Köszönjük a megkeresést! Örülünk, hogy kapcsolatba lépett velünk. Jó napot!' },
+  ];
+
+  function vGetResponse(text) {
+    const t = text.toLowerCase();
+    for (const { keys, r } of vResponses) {
+      if (keys.some(k => t.includes(k))) return r;
+    }
+    return 'Köszönjük a megkeresést! Miben segíthetünk részletesebben?';
+  }
+
+  function vAddBubble(text, type) {
+    const d = document.getElementById('vtranscript');
+    const b = document.createElement('div');
+    b.className = `vbubble v${type}`;
+    b.textContent = text;
+    d.appendChild(b);
+    d.scrollTop = d.scrollHeight;
+  }
+
+  function vRemoveThinking() {
+    const t = document.getElementById('vtranscript');
+    t.querySelectorAll('.vthinking').forEach(e => e.remove());
+  }
+
+  function vSpeak(text) {
+    vSynth.cancel();
+    if (vHasTTS) {
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'hu-HU'; u.rate = 0.92; u.pitch = 1.05;
+      document.getElementById('vwave').classList.add('speaking');
+      u.onend = () => document.getElementById('vwave').classList.remove('speaking');
+      vSynth.speak(u);
+    }
+    vAddBubble(text, 'ai');
+  }
+
+  function openVoiceDemo() {
+    const overlay = document.getElementById('vdemo');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('vtranscript').innerHTML = '';
+    document.getElementById('vstatus').textContent = 'Kapcsolódás...';
+    document.getElementById('vlive').style.display = 'none';
+    document.getElementById('vhint').textContent = 'Nyomj a mikrofon gombra és szólj hozzám';
+    if (!vHasSpeech) document.getElementById('vnosupport').style.display = 'block';
+    setTimeout(() => {
+      document.getElementById('vstatus').textContent = 'Aktív';
+      document.getElementById('vlive').style.display = 'inline-block';
+      vSpeak('Jó napot! Az SN Digital AI asszisztense vagyok. Miben segíthetek?');
+    }, 700);
+  }
+
+  function closeVoiceDemo() {
+    document.getElementById('vdemo').classList.remove('open');
+    document.body.style.overflow = '';
+    vSynth.cancel();
+    if (vRecognition) { try { vRecognition.stop(); } catch(e){} }
+    vListening = false;
+    document.getElementById('vmicbtn').classList.remove('listening');
+    document.getElementById('vwave').classList.remove('speaking','listening');
+  }
+
+  function toggleVoice() {
+    if (!vHasSpeech) {
+      document.getElementById('vnosupport').style.display = 'block';
+      return;
+    }
+    if (vListening) {
+      vRecognition.stop();
+      vListening = false;
+      document.getElementById('vmicbtn').classList.remove('listening');
+      document.getElementById('vwave').classList.remove('listening');
+      document.getElementById('vhint').textContent = 'Nyomj a mikrofon gombra és szólj hozzám';
+      return;
+    }
+    vSynth.cancel();
+    document.getElementById('vwave').classList.remove('speaking');
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    vRecognition = new SR();
+    vRecognition.lang = 'hu-HU';
+    vRecognition.interimResults = false;
+    vRecognition.maxAlternatives = 1;
+
+    vRecognition.onstart = () => {
+      vListening = true;
+      document.getElementById('vmicbtn').classList.add('listening');
+      document.getElementById('vwave').classList.add('listening');
+      document.getElementById('vhint').textContent = 'Hallgatom...';
+    };
+
+    vRecognition.onresult = (e) => {
+      const transcript = e.results[0][0].transcript;
+      vListening = false;
+      document.getElementById('vmicbtn').classList.remove('listening');
+      document.getElementById('vwave').classList.remove('listening');
+      vAddBubble(transcript, 'user');
+      const t = document.getElementById('vtranscript');
+      const thinking = document.createElement('div');
+      thinking.className = 'vthinking';
+      thinking.textContent = 'AI gépel...';
+      t.appendChild(thinking);
+      t.scrollTop = t.scrollHeight;
+      document.getElementById('vhint').textContent = 'AI gondolkodik...';
+      setTimeout(() => {
+        vRemoveThinking();
+        const resp = vGetResponse(transcript);
+        vSpeak(resp);
+        document.getElementById('vhint').textContent = 'Nyomj a mikrofon gombra és szólj hozzám';
+      }, 700);
+    };
+
+    vRecognition.onerror = (e) => {
+      vListening = false;
+      document.getElementById('vmicbtn').classList.remove('listening');
+      document.getElementById('vwave').classList.remove('listening');
+      const msgs = { 'not-allowed': 'Mikrofon hozzáférés megtagadva.', 'no-speech': 'Nem hallottam semmit. Próbáld újra!', 'network': 'Hálózati hiba.' };
+      document.getElementById('vhint').textContent = msgs[e.error] || 'Próbáld újra!';
+    };
+
+    vRecognition.onend = () => {
+      if (vListening) {
+        vListening = false;
+        document.getElementById('vmicbtn').classList.remove('listening');
+        document.getElementById('vwave').classList.remove('listening');
+      }
+    };
+
+    vRecognition.start();
+  }
+
+  document.getElementById('vdemo').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('vdemo')) closeVoiceDemo();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeVoiceDemo();
   });
 </script>
 </body>
