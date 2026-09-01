@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SN Digital — Klímás cégeknek építünk teljes ügyfélszerző online jelenlétet AI-alapú háttérrendszerrel.">
+  <meta property="og:title" content="SN Digital — Klímaszerelő AI Ügynökség">
+  <meta property="og:description" content="Nem veszted el a szezonális rohamokat. Minden érdeklődő, minden szervizigény — automatikusan kezelve.">
+  <meta property="og:type" content="website">
+  <title>SN Digital — Klímaszerelő AI Ügynökség</title>
+
+  <link rel="icon" type="image/png" href="sndigital-icon-512.png">
+  <link rel="apple-touch-icon" href="sndigital-icon-512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --violet: #7C5CFF;
+      --ink:    #0A0B16;
+      --cyan:   #22D3EE;
+      --white:  #FFFFFF;
+      --card:   #0F1020;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    @keyframes pulse-glow {
+      0%   { box-shadow: 0 0 15px rgba(124,92,255,0.4); }
+      50%  { box-shadow: 0 0 35px rgba(124,92,255,0.85), 0 0 65px rgba(124,92,255,0.3); }
+      100% { box-shadow: 0 0 15px rgba(124,92,255,0.4); }
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #7C5CFF 0%, #9b7fff 100%);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 40px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      animation: pulse-glow 2s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      animation: none;
+      box-shadow: 0 0 55px rgba(124,92,255,0.95), 0 0 90px rgba(124,92,255,0.4);
+      transform: translateY(-3px);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10,11,22,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(124,92,255,0.2);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .nav-logo img { height: 36px; width: auto; display: block; }
+
+    .nav-outline-btn {
+      background: transparent;
+      border: 1px solid var(--violet);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-outline-btn:hover {
+      background: rgba(124,92,255,0.14);
+      box-shadow: 0 0 20px rgba(124,92,255,0.3);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav { display: none; padding: 0 20px 20px; }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a {
+      display: block;
+      padding: 14px 0;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(124,92,255,0.1);
+    }
+    .mobile-nav a:last-child { border-bottom: none; color: var(--violet); font-weight: 700; }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, #7C5CFF 38%, #22D3EE 62%, transparent 100%);
+      opacity: 0.55;
+    }
+
+    .hero {
+      position: relative;
+      padding: 120px 40px 140px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-glow { position: absolute; pointer-events: none; }
+
+    .hero-glow-center {
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(124,92,255,0.15) 0%, transparent 65%);
+    }
+
+    .hero-glow-tr {
+      top: -120px; right: -120px;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(34,211,238,0.08) 0%, transparent 65%);
+    }
+
+    .hero-body { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border: 1px solid rgba(124,92,255,0.6);
+      border-radius: 100px;
+      background: rgba(124,92,255,0.1);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 36px;
+      box-shadow: 0 0 24px rgba(124,92,255,0.18), inset 0 0 20px rgba(124,92,255,0.05);
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 .vc { color: var(--violet); }
+
+    .hero-sub {
+      font-size: 20px;
+      color: rgba(255,255,255,0.7);
+      max-width: 610px;
+      margin: 0 auto 52px;
+      line-height: 1.78;
+    }
+
+    .section { padding: 100px 40px; }
+    .section-wrap { max-width: 1200px; margin: 0 auto; }
+    .section-head { text-align: center; margin-bottom: 64px; }
+
+    .section-head h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .vc { color: var(--violet); }
+    .cc { color: var(--cyan); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 52px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 52px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(124,92,255,0.2);
+      border-radius: 16px;
+      padding: 40px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--violet);
+      box-shadow: 0 0 40px rgba(124,92,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    .card-icon { font-size: 42px; line-height: 1; margin-bottom: 24px; display: block; }
+    .card h3 { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+    .card p { color: rgba(255,255,255,0.8); font-size: 17px; line-height: 1.75; }
+
+    .cta-center { text-align: center; }
+
+    .cal-subtitle {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--white);
+      margin-top: 12px;
+    }
+
+    .cal-desc {
+      color: rgba(255,255,255,0.8);
+      font-size: 18px;
+      line-height: 1.75;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 52px;
+    }
+
+    .cal-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid rgba(124,92,255,0.3);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 0 60px rgba(124,92,255,0.1);
+    }
+
+    footer { border-top: 1px solid rgba(124,92,255,0.15); padding: 40px; text-align: center; }
+    footer p { color: rgba(255,255,255,0.4); font-size: 15px; line-height: 1.9; }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.3s; }
+    footer a:hover { color: var(--violet); }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+
+    .bonus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+
+    #founder { padding: 80px 0; }
+    .founder-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+    .founder-photo-wrap { position: relative; border-radius: 20px; overflow: hidden; }
+    .founder-photo { width: 100%; display: block; border-radius: 20px; border: 2px solid rgba(124,92,255,0.35); box-shadow: 0 0 48px rgba(124,92,255,0.25), 0 0 96px rgba(34,211,238,0.08); transition: box-shadow 0.4s ease; }
+    .founder-photo-wrap:hover .founder-photo { box-shadow: 0 0 64px rgba(124,92,255,0.4), 0 0 120px rgba(34,211,238,0.15); }
+    .founder-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at bottom left, rgba(34,211,238,0.07) 0%, transparent 65%); pointer-events: none; border-radius: 20px; }
+    .founder-badge { display: inline-block; background: rgba(124,92,255,0.12); border: 1px solid rgba(124,92,255,0.3); color: var(--violet); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 24px; }
+    .founder-quote { font-family: 'Syne', sans-serif; font-size: clamp(1.3rem, 2.5vw, 1.65rem); font-weight: 700; color: var(--violet); line-height: 1.4; margin: 0 0 28px 0; border-left: 3px solid var(--violet); padding-left: 20px; }
+    .founder-bio { color: rgba(255,255,255,0.75); font-size: 1rem; line-height: 1.75; margin: 0 0 16px 0; }
+    .founder-cta-line { color: rgba(255,255,255,0.9); font-weight: 500; }
+    .founder-name-block { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 4px; }
+    .founder-name { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--white); }
+    .founder-title { font-size: 0.875rem; color: rgba(255,255,255,0.45); letter-spacing: 0.03em; }
+
+    .bonus-card { background: var(--card); border: 1px solid rgba(34,211,238,0.2); border-radius: 12px; padding: 28px; transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; }
+    .bonus-card:hover { border-color: rgba(34,211,238,0.5); box-shadow: 0 0 28px rgba(34,211,238,0.1); transform: translateY(-2px); }
+    .bonus-card .b-icon { font-size: 40px; line-height: 1; margin-bottom: 14px; display: block; }
+    .bonus-card h3 { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .bonus-card p { color: rgba(255,255,255,0.68); font-size: 15px; line-height: 1.65; }
+
+    .bonus-italic { text-align: center; font-style: italic; color: rgba(255,255,255,0.52); font-size: 16px; margin-bottom: 48px; line-height: 1.7; }
+
+    .section-sub { color: rgba(255,255,255,0.7); font-size: 20px; max-width: 600px; margin: 0 auto 56px; text-align: center; line-height: 1.75; }
+
+    @media (max-width: 1024px) {
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .bonus-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .process-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+
+    .proc-step { display: flex; align-items: flex-start; gap: 16px; background: var(--card); border: 1px solid rgba(124,92,255,0.15); border-radius: 12px; padding: 22px 24px; transition: border-color 0.3s, transform 0.3s; }
+    .proc-step:hover { border-color: rgba(124,92,255,0.4); transform: translateY(-2px); }
+    .proc-num { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: rgba(124,92,255,0.3); line-height: 1; flex-shrink: 0; min-width: 32px; }
+    .proc-body h3 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .proc-body p { color: rgba(255,255,255,0.62); font-size: 14px; line-height: 1.65; }
+
+    .reassure-strip { background: rgba(124,92,255,0.06); border: 1px solid rgba(124,92,255,0.18); border-left: 3px solid var(--violet); border-radius: 0 12px 12px 0; padding: 20px 28px; margin-bottom: 48px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .reassure-strip .rs-icon { font-size: 28px; flex-shrink: 0; }
+    .reassure-strip p { color: rgba(255,255,255,0.72); font-size: 15px; line-height: 1.7; }
+    .reassure-strip strong { color: var(--white); }
+
+    @media (max-width: 768px) {
+      .nav-inner { padding: 14px 20px; }
+      .nav-outline-btn { display: none; }
+      .hamburger { display: flex; }
+      .nav-logo img { height: 30px; }
+      .hero { padding: 72px 24px 90px; }
+      .hero h1 { font-size: 38px; letter-spacing: -0.5px; }
+      .hero-sub { font-size: 16px; }
+      .hero-badge { font-size: 13px; }
+      .section { padding: 64px 24px; }
+      .section-head { margin-bottom: 48px; }
+      .section-head h2 { font-size: 30px; }
+      .grid-2, .grid-3, .bonus-grid, .process-steps { grid-template-columns: 1fr; gap: 16px; }
+      .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+      .founder-quote { font-size: 1.2rem; }
+      .cal-subtitle { font-size: 22px; }
+      .cal-wrap { padding: 20px; }
+      .cal-desc { font-size: 16px; }
+      footer { padding: 28px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo img { height: 26px; }
+      .hero { padding: 56px 18px 72px; }
+      .hero h1 { font-size: 28px; letter-spacing: -0.3px; }
+      .hero-sub { font-size: 15px; margin-bottom: 36px; }
+      .hero-badge { font-size: 11px; padding: 6px 12px; margin-bottom: 24px; }
+      .section { padding: 52px 18px; }
+      .section-head h2 { font-size: 24px; }
+      .card { padding: 24px 20px; }
+      .card-icon { font-size: 34px; margin-bottom: 18px; }
+      .card h3 { font-size: 20px; }
+      .card p { font-size: 15px; }
+      .cta-btn { width: 100%; text-align: center; padding: 16px 18px; font-size: 16px; }
+      .cal-subtitle { font-size: 20px; }
+      .cal-wrap { padding: 14px; border-radius: 12px; }
+      footer { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="sndigital-lockup-1x.png" alt="SN Digital" loading="eager">
+      </a>
+      <a href="#calendar" class="nav-outline-btn">Időpontot foglalok</a>
+      <button class="hamburger" id="burger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mob-nav">
+      <a href="#services">Szolgáltatások</a>
+      <a href="#why-us">Miért mi?</a>
+      <a href="#calendar">Időpontot foglalok →</a>
+    </nav>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="top">
+    <div class="hero-glow hero-glow-center" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-tr"     aria-hidden="true"></div>
+
+    <div class="hero-body">
+      <div class="hero-badge reveal">
+        ❄️ #1 Klímaszerelő AI Ügynökség Magyarországon
+      </div>
+      <h1 class="reveal">
+        Klímás cégeknek építünk<br>
+        teljes <span class="vc">ügyfélszerző</span> online jelenlétet.
+      </h1>
+      <p class="hero-sub reveal">
+        Nem veszted el a szezonális rohamokat. Minden érdeklődő, minden szervizigény,<br>
+        minden visszajelzés — automatikusan kezelve.
+      </p>
+      <a href="#calendar" class="cta-btn reveal">Foglalj időpontot →</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="section" id="services">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2 class="reveal">Mit kapsz tőlünk?</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card reveal">
+          <span class="card-icon">🌐</span>
+          <h3>Weboldal</h3>
+          <p>Nem szép képeket rakunk fel az internetre. Olyan weboldalt csinálunk, amire aki rátalál — az felhívja a klímáscégedet, nem a konkurenciádat.</p>
+        </div>
+        <div class="card reveal d1">
+          <span class="card-icon">🤖</span>
+          <h3>AI háttérrendszer</h3>
+          <p>Mögötte fut egy okos rendszer. Ha valaki szervizidőpontot foglal, visszahívást kér vagy üzenetet hagy — mindent automatikusan kezel. Te csak a munkára figyelj.</p>
+        </div>
+      </div>
+
+      <div class="cta-center reveal">
+        <a href="#calendar" class="cta-btn">Érdekel — beszéljünk! →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ WHY US ═══ -->
+  <section class="section" id="why-us">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2 class="reveal">
+          Miért minket válassz,<br>
+          ha <span class="cc">Klímás</span> céged van?
+        </h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <span class="card-icon">🎯</span>
+          <h3>Tudás</h3>
+          <p>Csak klímás cégekkel dolgozunk. Pontosan tudjuk mi kell ahhoz, hogy a nyári hőhullámban vagy a téli fagyban az emberek téged hívjanak — nem a konkurenciádat.</p>
+        </div>
+        <div class="card reveal d1">
+          <span class="card-icon">⚡</span>
+          <h3>Innováció</h3>
+          <p>Nem egy merev oldalt kapsz, amit aztán senki nem nyúl hozzá. Egy élő rendszert, ami fejlődik — és mindig pontosan tudod hány új ügyfél érkezett belőle.</p>
+        </div>
+        <div class="card reveal d2">
+          <span class="card-icon">🤝</span>
+          <h3>Megbízhatóság</h3>
+          <p>Nálunk nincs mellébeszélés. Mindig tudod mi folyik, mit csináltunk, mi az eredmény — és ha kérdésed van, elérhető vagyunk.</p>
+        </div>
+      </div>
+
+      <div class="cta-center reveal">
+        <a href="#calendar" class="cta-btn">Időpontot foglalok →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ FOUNDER ═══ -->
+  <section class="section" id="founder">
+    <div class="section-wrap">
+      <div class="founder-grid">
+        <div class="founder-photo-wrap reveal">
+          <img src="website_picture.png" alt="Noel Sivák – SN Digital alapítója" class="founder-photo" />
+          <div class="founder-glow"></div>
+        </div>
+        <div class="founder-text reveal d1">
+          <span class="founder-badge">Az alapítóról</span>
+          <blockquote class="founder-quote">
+            „Az AI nem a jövő — már most alakítja az életed, csak nem mindenki veszi észre."
+          </blockquote>
+          <p class="founder-bio">
+            Noel vagyok, az SN Digital alapítója. 20 éves koromra abban a világban nőttem fel, ahol a rendszerek, az automatizáció és az AI nem különleges technológia — hanem hétköznapi valóság.
+          </p>
+          <p class="founder-bio">
+            Azok a vállalkozások, amelyek most kezdik el használni ezeket az eszközöket, 2-3 éven belül messze megelőzik azokat, akik kivárnak. Ez nem félelem — ez egyszerűen a tény.
+          </p>
+          <p class="founder-bio founder-cta-line">
+            Ha most lép, nem lemarad. Ha vár, egyre nehezebb lesz behozni a lemaradást.
+          </p>
+          <div class="founder-name-block">
+            <span class="founder-name">Noel Sivák</span>
+            <span class="founder-title">Alapító, SN Digital</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ BONUSES ═══ -->
+  <section class="section" id="bonuses">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2 class="reveal">Nem csak egy meetinget kapsz</h2>
+        <p class="section-sub reveal">
+          Mindenki tud meetinget tartani.<br>
+          Nálunk a segítség az első — még a találkozó előtt<br>
+          kapsz tőlünk valamit, amit azonnal tudsz használni.
+        </p>
+      </div>
+
+      <div class="bonus-grid">
+        <div class="bonus-card reveal">
+          <span class="b-icon">🎥</span>
+          <h3>Személyes videó</h3>
+          <p>Amint foglaltál, egy személyes üzenetet kapsz tőlem — hogy tudd kit fogsz látni a meetingen.</p>
+        </div>
+        <div class="bonus-card reveal d1">
+          <span class="b-icon">✅</span>
+          <h3>Ingyenes checklist</h3>
+          <p>„5 dolog amit a legjobb klímacégek csinálnak online" — azonnal használható.</p>
+        </div>
+        <div class="bonus-card reveal d2">
+          <span class="b-icon">⭐</span>
+          <h3>Google értékelés útmutató</h3>
+          <p>Lépésről lépésre hogyan szerezz több értékelést — kész szövegekkel.</p>
+        </div>
+      </div>
+
+      <p class="bonus-italic reveal">
+        Ezeket azonnal megkapod foglalás után —<br>
+        nem kell semmire várni, nem kell semmit fizetni.
+      </p>
+
+      <div class="cta-center reveal">
+        <a href="#calendar" class="cta-btn">Foglalok és megkapom az ajándékokat →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ FOLYAMAT ═══ -->
+  <section class="section" id="folyamat">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2 class="reveal">Mit fogunk csinálni ezen a 30 percen?</h2>
+        <p class="section-sub reveal">
+          Ez nem egy értékesítői hívás. Végigmegyünk a céged helyzetén —<br>
+          és ha nem érzed, hogy tudunk segíteni, elköszönünk jó szívvel.
+        </p>
+      </div>
+
+      <div class="process-steps">
+        <div class="proc-step reveal">
+          <span class="proc-num">1</span>
+          <div class="proc-body">
+            <h3>👂 Meghallgatunk</h3>
+            <p>Elmondod hol tart most a vállalkozásod — hány ügyfél jön, honnan érkeznek, mi hiányzik. Mi csak kérdezünk.</p>
+          </div>
+        </div>
+        <div class="proc-step reveal d1">
+          <span class="proc-num">2</span>
+          <div class="proc-body">
+            <h3>🔍 Megnézzük együtt</h3>
+            <p>Megosztom a képernyőt és megmutatom mit látnak az emberek a cégedről az interneten — mielőtt felhívnak vagy épp nem.</p>
+          </div>
+        </div>
+        <div class="proc-step reveal">
+          <span class="proc-num">3</span>
+          <div class="proc-body">
+            <h3>💡 Megmondjuk egyenesen</h3>
+            <p>Ha látunk helyet ahol tudunk segíteni — megmondjuk konkrétan. Ha nem látunk lehetőséget — azt is megmondjuk.</p>
+          </div>
+        </div>
+        <div class="proc-step reveal d1">
+          <span class="proc-num">4</span>
+          <div class="proc-body">
+            <h3>🤝 Te döntesz</h3>
+            <p>Ha tetszik amit hallasz — folytatjuk. Ha nem, vagy még gondolkodni szeretnél — semmi gond, nincs semmi kötelezettség.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reassure-strip reveal">
+        <span class="rs-icon">🛡️</span>
+        <p>
+          <strong>Nincs szerződés. Nincs nyomás. Nincs "de ha most dönt..." dumálás.</strong><br>
+          Csak egy őszinte 30 perc — és akárhogy döntesz, hazamész valamivel.
+        </p>
+      </div>
+
+      <div class="cta-center reveal">
+        <a href="#calendar" class="cta-btn">Rendben, foglalok egy 30 perces hívást →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ CALENDAR ═══ -->
+  <section class="section" id="calendar">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2 class="reveal">Felkeltettük az érdeklődésedet?</h2>
+        <p class="cal-subtitle reveal">Beszéljünk egyet <span class="cc">online</span>! :)</p>
+      </div>
+
+      <p class="cal-desc reveal">
+        Egy gyors 30 perces beszélgetés, amiben megállapítjuk,<br>
+        hogyan tudunk neked legjobban segíteni.
+      </p>
+
+      <div class="cal-wrap reveal">
+        <!-- ═══════════════════════════════════════════════════════
+             CALENDLY EMBED — KLÍMÁS NAPTÁR
+             Cseréld le a lenti placeholder-t a Calendly widget kóddal:
+
+             <div class="calendly-inline-widget"
+                  data-url="https://calendly.com/NEVED/30min"
+                  style="min-width:320px;height:700px;">
+             </div>
+             <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+             ═══════════════════════════════════════════════════════ -->
+        <div style="min-height:580px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:rgba(255,255,255,0.25);text-align:center;">
+          <span style="font-size:40px;opacity:.4">📅</span>
+          <p style="font-size:15px;max-width:320px;line-height:1.6;font-family:'DM Sans',sans-serif;">Ide kerül a klímás Calendly naptár<br><span style="font-size:13px;opacity:.7;">Cseréld le a fenti megjegyzésben leírt kóddal</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <p>© 2026 SN Digital — Minden jog fenntartva</p>
+    <p><a href="mailto:noel@sndigital.hu">noel@sndigital.hu</a></p>
+    <p style="margin-top: 12px;">
+      <a href="adatkezeles.html">Adatkezelési tájékoztató</a>
+    </p>
+  </footer>
+
+  <!-- ═══ JS ═══ -->
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), 120 + i * 130);
+    });
+
+    const burger = document.getElementById('burger');
+    const mobNav = document.getElementById('mob-nav');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      mobNav.classList.toggle('open');
+    });
+
+    mobNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        mobNav.classList.remove('open');
+      });
+    });
+  </script>
+  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a50f8f62d9286712805b280"></script>
+</body>
+</html>
