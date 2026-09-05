@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /thankyou.html
+Disallow: /thankyou-klima.html
+Disallow: /thankyou-villany.html
+Disallow: /thankyou-felujito.html
+
+Sitemap: https://sndigital.hu/sitemap.xml
