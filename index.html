@@ -257,6 +257,68 @@
     }
     .calc-cta-wrap { text-align: center; }
 
+    /* Disable the static glow from styles.css — orbs replace it */
+    .hero-niche::before { display: none; }
+
+    /* Hero animated orbs */
+    .hero-orbs {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(72px);
+      will-change: transform, opacity;
+    }
+    .orb-1 {
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, rgba(124,92,255,.22) 0%, transparent 70%);
+      top: -160px;
+      left: -100px;
+      animation: orbFloat1 14s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(34,211,238,.16) 0%, transparent 70%);
+      top: -80px;
+      right: -80px;
+      animation: orbFloat2 18s ease-in-out infinite;
+    }
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(124,92,255,.13) 0%, transparent 70%);
+      bottom: -60px;
+      left: 40%;
+      animation: orbFloat3 11s ease-in-out infinite;
+    }
+    @keyframes orbFloat1 {
+      0%   { transform: translate(0, 0) scale(1);    opacity: .85; }
+      33%  { transform: translate(60px, 40px) scale(1.08); opacity: 1; }
+      66%  { transform: translate(-30px, 70px) scale(.95); opacity: .75; }
+      100% { transform: translate(0, 0) scale(1);    opacity: .85; }
+    }
+    @keyframes orbFloat2 {
+      0%   { transform: translate(0, 0) scale(1);      opacity: .8; }
+      40%  { transform: translate(-70px, 50px) scale(1.1); opacity: 1; }
+      75%  { transform: translate(30px, -30px) scale(.92); opacity: .7; }
+      100% { transform: translate(0, 0) scale(1);      opacity: .8; }
+    }
+    @keyframes orbFloat3 {
+      0%   { transform: translate(0, 0) scale(1);      opacity: .7; }
+      50%  { transform: translate(-40px, -50px) scale(1.12); opacity: .95; }
+      100% { transform: translate(0, 0) scale(1);      opacity: .7; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .orb { animation: none; }
+    }
+
     .hero-cta-row {
       display: flex;
       align-items: center;
@@ -311,6 +373,11 @@
 
 <!-- ── HERO ─────────────────────────────────────────────── -->
 <section class="hero-niche">
+  <div class="hero-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
   <div class="hero-inner">
     <div class="eyebrow reveal"><span class="dot"></span>Logisztikai adminisztráció · Folyamatoptimalizálás</div>
     <h1 class="reveal">
