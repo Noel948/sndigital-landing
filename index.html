@@ -3,168 +3,434 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SN Digital — AI automatizáció magyar műszaki és kivitelező cégeknek. Kevesebb adminisztráció, kevesebb elveszett ügyfél, több elvégzett munka.">
-  <title>SN Digital — AI Automatizáció Magyar Műszaki Cégeknek</title>
+  <meta name="description" content="Sivák Noel — logisztikai végzettséggel segítek feltárni, hol megy el feleslegesen idő és pénz az adminisztrációban. Fuvarozó és szállítmányozó cégeknek.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="SN Digital — AI Automatizáció Magyar Műszaki Cégeknek">
-  <meta property="og:description" content="Kevesebb adminisztráció, kevesebb elveszett ügyfél, több elvégzett munka. AI hangasszisztens és automatizáció műszaki kivitelező cégeknek.">
+  <meta property="og:title" content="Logisztikai adminisztráció optimalizálás — Sivák Noel">
+  <meta property="og:description" content="Az adminisztráció pénzbe kerül. Logisztikai végzettséggel megmutatom, hol vész el feleslegesen — és hogyan lehet csökkenteni.">
   <meta property="og:url" content="https://sndigital.hu/">
   <meta property="og:image" content="https://sndigital.hu/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
+  <title>Logisztikai adminisztráció optimalizálás — Sivák Noel</title>
   <link rel="icon" type="image/png" href="sndigital-icon-512.png">
   <link rel="apple-touch-icon" href="sndigital-icon-512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ProfessionalService","name":"SN Digital","description":"AI automatizáció és hangasszisztens magyar műszaki kivitelező cégeknek","url":"https://sndigital.hu","email":"noel@sndigital.hu"}
-  </script>
+  <style>
+    /* Page-specific styles — does not affect other pages */
+
+    .prob-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .insight-box {
+      margin-top: 36px;
+      padding: 28px 36px;
+      background: rgba(124,92,255,.05);
+      border: 1px solid rgba(124,92,255,.18);
+      border-radius: 16px;
+      font-size: 17px;
+      color: var(--m);
+      line-height: 1.8;
+      text-align: center;
+    }
+    .insight-box strong { color: var(--w); }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 48px;
+      max-width: 780px;
+    }
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--v);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 56px;
+      opacity: .45;
+      letter-spacing: -2px;
+    }
+    .step-body h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--w);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .step-body p {
+      font-size: 16px;
+      color: var(--m);
+      line-height: 1.8;
+    }
+    .step-close {
+      margin-top: 40px;
+      padding: 28px 36px;
+      background: rgba(124,92,255,.05);
+      border: 1px solid rgba(124,92,255,.15);
+      border-radius: 16px;
+      font-size: 16px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.8;
+      max-width: 780px;
+    }
+    .step-close strong { color: var(--w); }
+
+    /* Calculator */
+    .calc-section { padding: 88px 48px; }
+    .calc-inner { max-width: 860px; margin: 0 auto; }
+    .calc-wrap {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 28px;
+      padding: 52px;
+      margin-top: 44px;
+    }
+    .calc-intro {
+      font-size: 16px;
+      color: var(--m);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 580px;
+    }
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      margin-bottom: 44px;
+    }
+    .calc-field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--w);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .field-hint {
+      display: block;
+      font-size: 12px;
+      color: var(--sm);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .calc-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .calc-slider-row input[type="range"] {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      background: rgba(255,255,255,.1);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+    .calc-slider-row input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--v);
+      cursor: pointer;
+      box-shadow: 0 0 14px rgba(124,92,255,.5);
+      transition: box-shadow .2s;
+    }
+    .calc-slider-row input[type="range"]:hover::-webkit-slider-thumb {
+      box-shadow: 0 0 24px rgba(124,92,255,.75);
+    }
+    .calc-slider-row input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--v);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 14px rgba(124,92,255,.5);
+    }
+    .slider-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--v);
+      min-width: 110px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .stepper {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .stepper button {
+      background: rgba(255,255,255,.05);
+      border: none;
+      color: var(--w);
+      font-size: 20px;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      transition: background .2s;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .stepper button:hover { background: rgba(124,92,255,.2); }
+    .stepper-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--w);
+      min-width: 56px;
+      text-align: center;
+      padding: 0 8px;
+    }
+    .calc-results {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .calc-result-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .calc-result-card.yearly {
+      background: rgba(124,92,255,.07);
+      border-color: rgba(124,92,255,.3);
+    }
+    .calc-period {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--sm);
+      margin-bottom: 12px;
+    }
+    .calc-result-card.yearly .calc-period { color: rgba(124,92,255,.75); }
+    .calc-big {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--w);
+      letter-spacing: -.5px;
+    }
+    .calc-result-card.yearly .calc-big {
+      font-size: 34px;
+      background: linear-gradient(130deg, var(--v) 20%, var(--c) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .calc-disclaimer {
+      font-size: 12px;
+      color: var(--sm);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .calc-cta-wrap { text-align: center; }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--m);
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      padding: 13px 22px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(124,92,255,.4);
+      color: var(--w);
+    }
+
+    @media (max-width: 768px) {
+      .prob-grid { grid-template-columns: 1fr; }
+      .calc-section { padding: 64px 24px; }
+      .calc-wrap { padding: 32px 22px; }
+      .calc-results { grid-template-columns: 1fr; }
+      .insight-box { padding: 22px 24px; font-size: 16px; }
+      .step-close { padding: 22px 24px; }
+    }
+    @media (max-width: 520px) {
+      .step-item { flex-direction: column; gap: 8px; }
+      .step-num { font-size: 38px; }
+      .calc-slider-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .slider-val { text-align: left; }
+    }
+  </style>
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="sndigital-lockup-1x.png" alt="SN Digital" loading="eager"></a>
-    <a href="#iparag" class="nav-btn">Megmutatom az iparágamat</a>
+    <a href="index.html" class="nav-logo"><img src="sndigital-lockup-1x.png" alt="SN Digital"></a>
+    <a href="#idopont" class="nav-btn">Egyeztetés</a>
   </div>
 </header>
 
-<!-- ── HERO ─────────────────────────────────────────── -->
-<section class="hero-hub">
-  <div class="hero-inner-grid">
-    <div class="hero-text">
-      <div class="hero-eyebrow reveal"><span class="dot"></span>AI automatizáció · Magyar műszaki cégeknek</div>
-      <h1 class="reveal">
-        Miközben te<br>
-        <em>dolgozol</em> — az AI<br>
-        <span class="cc">intézi a többit.</span>
-      </h1>
-      <p class="hero-sub reveal">
-        Miközben te a munkádon vagy, az AI fogadja a hívásokat, lefoglalja az időpontokat, nyomon követi az érdeklődőket. Este hazamész — <strong>minden el van intézve, egyetlen ügyfél sem veszett el.</strong>
-      </p>
-      <a href="#iparag" class="btn-hero reveal">
-        Megmutatom az iparágamat
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="hero-niche">
+  <div class="hero-inner">
+    <div class="eyebrow reveal"><span class="dot"></span>Logisztikai adminisztráció · Folyamatoptimalizálás</div>
+    <h1 class="reveal">
+      Egy logisztikai cégnél<br>
+      az adminisztráció nem termel bevételt.<br>
+      <span class="vc">Mégis fizetnek érte.</span>
+    </h1>
+    <p class="niche-hero-sub reveal">
+      Logisztikai végzettséggel segítek feltárni, hol megy el feleslegesen idő és pénz a napi működésben — és hogyan lehet ezt csökkenteni.
+    </p>
+    <div class="hero-cta-row reveal">
+      <a href="#idopont" class="btn-cta">
+        Nézzük meg a te helyzetedet
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <p class="hero-note reveal">Ingyenes, 30 perces egyeztetés · Nincs kötelezettség</p>
-      <div class="hero-stats reveal">
-        <div><span class="hstat-val vc">24/7</span><span class="hstat-label">Soha nem alszik</span></div>
-        <div><span class="hstat-val">&lt;1 mp</span><span class="hstat-label">Válaszidő</span></div>
-        <div><span class="hstat-val cc">0</span><span class="hstat-label">Elveszett hívás</span></div>
-      </div>
+      <a href="#kalkulator" class="btn-ghost">Mennyi kerül neked az adminisztráció? ↓</a>
     </div>
-    <div class="demo-wrap reveal d2">
-      <div class="demo-glow"></div>
-      <div class="demo-card">
-        <div class="demo-topbar">
-          <div class="demo-caller">
-            <div class="demo-icon">🤖</div>
-            <div><div class="demo-name">SN Digital AI</div><div class="demo-num">Interaktív demo</div></div>
-          </div>
-          <span class="demo-live">● ÉLŐ</span>
-        </div>
-        <div class="demo-wave" id="dwave">
-          <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
-          <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
-          <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
-          <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
-        </div>
-        <div class="demo-status">
-          <div class="demo-dot"></div>
-          <span class="demo-status-txt" id="dstatus">Szólj hozzám — próbáld ki az AI-t</span>
-        </div>
-        <div class="demo-transcript" id="dtranscript">
-          <div class="dbubble dai">Jó napot! Az SN Digital AI asszisztense vagyok. Miben segíthetünk?</div>
-        </div>
-        <div class="demo-controls">
-          <button class="mic-btn" id="dmicbtn" onclick="toggleDemo()">🎙</button>
-          <div class="demo-hint" id="dhint">Nyomj ide és szólj hozzám magyarul</div>
-        </div>
-        <div class="demo-foot">Szimulált demo · a valódi rendszer ugyanígy működik</div>
-      </div>
-    </div>
+    <p class="hero-note-niche reveal">Rövid, ingyenes egyeztetés · Nincs kötelezettség</p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ── PAIN / BEFORE-AFTER ──────────────────────────── -->
+<!-- ── PROBLÉMA ──────────────────────────────────────────── -->
 <section class="section">
-  <div class="section-inner" style="max-width:940px;margin:0 auto;">
-    <div class="s-tag reveal" style="justify-content:center;display:inline-flex;">A valóság</div>
-    <h2 class="s-h2 reveal" style="text-align:center;margin-bottom:12px;">Minden ki nem fogadott hívás<br>egy <span class="cc">elveszített ügyfél.</span></h2>
-    <p class="s-p reveal" style="text-align:center;margin:0 auto 0;">Az ügyfél nem vár. Ha nem veszel fel — 2 perccel később a következő céget hívja. Minden nappal, amíg nincs rendszered, pénzt és lehetőséget veszítesz el csendben.</p>
-    <div class="ba-grid">
-      <div class="ba-card before reveal">
-        <div class="ba-label bl">— Rendszer nélkül, ma</div>
-        <h3>Kijössz egy munkából.<br>3 kihagyott hívás van a telefonon.</h3>
-        <ul class="ba-list">
-          <li>
-            <svg class="bi" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="rgba(200,50,50,.5)" stroke-width="1.4"/><path d="M7 7l6 6M13 7l-6 6" stroke="rgba(200,50,50,.75)" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Kettőt már nem lehet utolérni — a következő céget hívták, és ott le is foglaltak. Az a munka ma már valaki másé.
-          </li>
-          <li>
-            <svg class="bi" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="rgba(200,50,50,.5)" stroke-width="1.4"/><path d="M7 7l6 6M13 7l-6 6" stroke="rgba(200,50,50,.75)" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Hétvégén is mellette kell lenni — mert a vállalkozás csak addig él, amíg te mellette állsz. Nincs pihenő, nincs szünet.
-          </li>
-          <li>
-            <svg class="bi" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="rgba(200,50,50,.5)" stroke-width="1.4"/><path d="M7 7l6 6M13 7l-6 6" stroke="rgba(200,50,50,.75)" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Visszahívod — "Már megoldottuk, köszönöm." Az a mondat minden alkalommal pénzbe kerül. Pontosan azt sem tudod, mennyibe.
-          </li>
-        </ul>
-      </div>
-      <div class="ba-card after reveal d1">
-        <div class="ba-label al">+ Az AI rendszerrel, holnaptól</div>
-        <h3>Kijössz egy munkából.<br>Az AI mindenkit kezelt helyetted.</h3>
-        <ul class="ba-list">
-          <li>
-            <svg class="bi" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="rgba(34,211,238,.5)" stroke-width="1.4"/><path d="M6 10.5l2.5 2.5 5-5.5" stroke="rgba(34,211,238,.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Minden hívás fogadva — időpont lefoglalva, visszaigazolás kiküldve. Te csak elvégzed a munkát, ami vár rád.
-          </li>
-          <li>
-            <svg class="bi" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="rgba(34,211,238,.5)" stroke-width="1.4"/><path d="M6 10.5l2.5 2.5 5-5.5" stroke="rgba(34,211,238,.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Hétvégén az AI dolgozik, te pihensz. Hétfőn egy lista vár: ki hívott, mit szeretne, mikor ér rá. Kész.
-          </li>
-          <li>
-            <svg class="bi" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="rgba(34,211,238,.5)" stroke-width="1.4"/><path d="M6 10.5l2.5 2.5 5-5.5" stroke="rgba(34,211,238,.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Elvégzett munkák után automatikusan megy a visszajelzés-kérés. A reputációd nő, miközben te a következő munkán vagy.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── VISION ────────────────────────────────────────── -->
-<section class="section vis-bg">
   <div class="section-inner">
-    <div class="s-tag tc reveal">Amivé válhatsz</div>
-    <h2 class="s-h2 reveal">Nem egy eszközt kapsz.<br><span class="cc">Visszakapod az idődet.</span></h2>
-    <p class="s-p reveal">Gondolj arra az érzésre, amikor az üzleted fut — és te csak a szakmáddal kell foglalkoznod. Nem adminisztrációval, nem kihagyott hívásokkal, nem esti visszahívásokkal. Ez az az élet, amire vállalkozóként vágyasz.</p>
-    <div class="vis-grid">
+    <div class="s-tag reveal">Ismerős helyzetek</div>
+    <h2 class="s-h2 reveal">Napi ismétlődő feladatok,<br>amelyek nem a fuvarozásról szólnak</h2>
+    <p class="s-p reveal">A logisztikai cég bevételt a fuvarokon termel — nem az adminisztráción. Mégis a csapat ideje és pénze nap mint nap részben ismétlődő, manuális feladatokba megy el.</p>
+
+    <div class="prob-grid">
       <div class="vis-card reveal">
         <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <line x1="10" y1="9" x2="8" y2="9"/>
+          </svg>
         </div>
-        <h3>Visszakapod a napjaidat</h3>
-        <p>Este hazamész — a munkád elvégezve, a telefon csendben, az elméd szabad. Nincs "még egyetlen visszahívás". Az AI intézte.</p>
+        <h3>Dokumentumkezelés</h3>
+        <p>Fuvarokmányok, CMR-ek, szállítólevelek kézi rögzítése, másolása, archiválása. Naponta elvesz perceket — szorozva a hetek számával komoly összeg jön ki.</p>
       </div>
       <div class="vis-card reveal d1">
         <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
         </div>
-        <h3>A neved terjed — te nélküled</h3>
-        <p>A rendszer minden elvégzett munka után értékelést kér. A Google csillagaid nőnek, az elégedett ügyfelek ajánlanak — te csak a jó munkát végzed.</p>
+        <h3>Koordináció és kommunikáció</h3>
+        <p>Visszaigazolások, státuszfrissítések, e-mailek kézi kezelése. Minden kis feladat megszakítja a fókuszt — és összeadva rengeteg időt visz el a tényleges munkától.</p>
+      </div>
+      <div class="vis-card reveal d1">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+        </div>
+        <h3>Számlázási adminisztráció</h3>
+        <p>Fuvarok lezárása, számlák, költségrögzítések — ismétlődő, hibalehetőségekkel teli folyamatok, amelyek mindig valakinek az asztalán landolnak.</p>
       </div>
       <div class="vis-card reveal d2">
         <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
         </div>
-        <h3>Tudod, mi működik</h3>
-        <p>Havonta pontosan látod: hány hívás érkezett, hány lett tényleges munka, melyik forrásból jönnek a legjobb ügyfelek. Nem hozzávetőlegesen — pontosan.</p>
+        <h3>Adatbevitel és nyilvántartás</h3>
+        <p>Amit lehetne egyszerűsíteni, azt kézzel csinálják — mert „mindig így csinálták". Ez az egyik legtöbb pénzt emésztő szokás a logisztikai cégeknél.</p>
+      </div>
+    </div>
+
+    <div class="insight-box reveal">
+      Ezek a feladatok egyenként kevésnek tűnnek. Összeadva: <strong>évi több millió forint értékű munkaidő</strong> megy el olyan feladatokra, amelyek nem termelnek bevételt.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── ÉRTÉKAJÁNLAT ──────────────────────────────────────── -->
+<section class="section vis-bg">
+  <div class="section-inner">
+    <div class="s-tag reveal">Miért más ez</div>
+    <h2 class="s-h2 reveal">Nem kiszervezést ajánlok.<br><span class="vc">Feltárom, hol vész el a pénz.</span></h2>
+    <p class="s-p reveal">A különbség: nem elveszem a munkát a csapatodtól — megmutatom, hol és mennyit lehet egyszerűsíteni, hogy kevesebb pénz menjen el oda, ahol nem kell.</p>
+    <div class="vis-grid">
+      <div class="vis-card reveal">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <h3>Logisztikai háttér</h3>
+        <p>Logisztikai iskolát végeztem. Nem kívülről közelítem meg a működésedet — értem a fuvarszervezés, dokumentáció és koordináció napi valóságát. Nem kell magyarázni az alapokat.</p>
+      </div>
+      <div class="vis-card reveal d1">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="11" y1="8" x2="11" y2="14"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+        <h3>Audit, nem szoftvercsomag</h3>
+        <p>Nem egy általános eszközt adok el. Megvizsgálom a te folyamataidat, és megmutatom, konkrétan hol érdemes változtatni — a te vállalkozásodra lebontva.</p>
+      </div>
+      <div class="vis-card reveal d2">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <h3>Pénzügyi hatás, nem munkaóra</h3>
+        <p>A cél nem az, hogy kevesebb e-mailt kezeljetek. A cél az, hogy kevesebb pénz menjen el arra, ami nem bevételt termel — és több maradjon a tényleges munkára.</p>
       </div>
     </div>
   </div>
@@ -172,66 +438,141 @@
 
 <div class="divider"></div>
 
-<!-- ── TRUST BAND ────────────────────────────────────── -->
-<div class="trust-band">
-  <div class="trust-inner">
-    <p class="reveal"><strong>Csak magyar műszaki kivitelező cégekkel dolgozunk.</strong> Nem általánosat adunk — pontosan értjük az iparágadat, a munkád ritmusát és az ügyfeleid elvárásait. A rendszer erre az ismeretre épül.</p>
-  </div>
-</div>
+<!-- ── KALKULÁTOR ────────────────────────────────────────── -->
+<section class="calc-section" id="kalkulator">
+  <div class="calc-inner">
+    <div class="s-tag reveal">Becslés</div>
+    <h2 class="s-h2 reveal">Mennyibe kerül neked<br>az adminisztráció?</h2>
+    <p class="s-p reveal">Számold ki, mekkora pénzügyi súlya van az ismétlődő adminisztrációnak a vállalkozásodban.</p>
 
-<!-- ── NICHE SELECTOR ────────────────────────────────── -->
-<section class="section niche-bg" id="iparag">
+    <div class="calc-wrap reveal">
+      <p class="calc-intro">Ez egy egyszerű becslés — nem könyvelés. De segít érzékeltetni, hogy az ismétlődő adminisztrációnak valós pénzügyi súlya van.</p>
+
+      <div class="calc-inputs">
+
+        <div class="calc-field">
+          <label for="sl-hours">Hány óra megy el hetente adminisztratív feladatokra a csapatban összesen?</label>
+          <div class="calc-slider-row">
+            <input type="range" id="sl-hours" min="1" max="40" value="10" step="1">
+            <span class="slider-val" id="val-hours">10&nbsp;óra&nbsp;/&nbsp;hét</span>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label for="sl-rate">Egy munkatárs becsült óraköltsége (bruttó bér + járulékok alapján)</label>
+          <span class="field-hint">Tájékoztatásul: átlagos irodai munkatársnál ~2&thinsp;500–4&thinsp;000&nbsp;Ft/óra körüli összeg szokott kijönni.</span>
+          <div class="calc-slider-row">
+            <input type="range" id="sl-rate" min="1500" max="8000" value="3000" step="100">
+            <span class="slider-val" id="val-rate">3&nbsp;000&nbsp;Ft&nbsp;/&nbsp;óra</span>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label>Hány munkatársat érint ez a feladatkör?</label>
+          <div class="stepper">
+            <button id="btn-minus" type="button" aria-label="Csökkent">−</button>
+            <span class="stepper-val" id="val-staff">2</span>
+            <button id="btn-plus" type="button" aria-label="Növel">+</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-result-card">
+          <span class="calc-period">Heti</span>
+          <span class="calc-big" id="res-weekly">60&nbsp;000&nbsp;Ft</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-period">Havi</span>
+          <span class="calc-big" id="res-monthly">260&nbsp;000&nbsp;Ft</span>
+        </div>
+        <div class="calc-result-card yearly">
+          <span class="calc-period">Éves</span>
+          <span class="calc-big" id="res-yearly">3&nbsp;120&nbsp;000&nbsp;Ft</span>
+        </div>
+      </div>
+
+      <p class="calc-disclaimer">Ez egy tájékoztató becslés, nem garantált megtakarítás. A valós helyzet feltárásához egyeztetés szükséges — a kalkulátor csupán a jelenlegi adminisztrációs teher nagyságát szemlélteti.</p>
+
+      <div class="calc-cta-wrap">
+        <a href="#idopont" class="btn-cta">
+          Nézzük meg, ebből mennyit lehet csökkenteni
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── HOGYAN SEGÍTEK ────────────────────────────────────── -->
+<section class="section">
   <div class="section-inner">
-    <div class="niche-head">
-      <div class="s-tag reveal" style="justify-content:center;">Mivel foglalkozol?</div>
-      <h2 class="niche-h2 reveal">Válaszd ki az <span class="vc">iparágadat.</span></h2>
-      <p class="niche-sub reveal">Válaszd ki a szakterületedet — megmutatjuk, pontosan hogyan nézne ki a rendszer a te vállalkozásodra szabva.</p>
+    <div class="s-tag reveal">Folyamat</div>
+    <h2 class="s-h2 reveal">3 lépésben derül ki,<br>hol vész el a pénz</h2>
+
+    <div class="steps-list">
+      <div class="step-item reveal">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Feltárás</h3>
+          <p>Közösen végigmegyünk a napi adminisztratív folyamatokon. Megmutatod, hogyan kezeli a csapat az ismétlődő feladatokat — én feljegyzem, hol van veszteség, hol törik meg a folyamat.</p>
+        </div>
+      </div>
+      <div class="step-item reveal d1">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Elemzés</h3>
+          <p>Összerakok egy képet arról, hogy ezek a folyamatok időben és pénzben mennyit visznek el, és hol lehet egyszerűsíteni vagy csökkenteni — a ti vállalkozásotokra lebontva.</p>
+        </div>
+      </div>
+      <div class="step-item reveal d2">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Javaslat</h3>
+          <p>Konkrét lépéseket adok, amelyeket saját tempótokban megvalósíthattok — drága IT-beruházás vagy teljes átszervezés nélkül.</p>
+        </div>
+      </div>
     </div>
-    <div class="niche-flex">
-      <a href="klima.html" class="niche-card reveal" onclick="trackNiche('hvac-klima')">
-        <span class="niche-em">❄️</span>
-        <h3>HVAC / Klímaszerelés</h3>
-        <p>Nyáron minden hívás számít. Az AI fogadja őket, mialatt te szerelsz.</p>
-        <span class="niche-link">Megmutatom →</span>
-      </a>
-      <a href="futestechnika.html" class="niche-card reveal d1" onclick="trackNiche('futestechnika')">
-        <span class="niche-em">🔥</span>
-        <h3>Fűtéstechnika</h3>
-        <p>Téli csúcsszezon, sürgős hibabejelentések — mind kezelve, automatikusan.</p>
-        <span class="niche-link">Megmutatom →</span>
-      </a>
-      <a href="villany.html" class="niche-card reveal d2" onclick="trackNiche('villanyszereles')">
-        <span class="niche-em">⚡</span>
-        <h3>Villanyszerelés</h3>
-        <p>Sürgős hívások, esti megkeresések — egyetlen érdeklődő sem megy el fogadatlanul.</p>
-        <span class="niche-link">Megmutatom →</span>
-      </a>
-      <a href="epuletgepeszet.html" class="niche-card reveal d3" onclick="trackNiche('epuletgepeszet')">
-        <span class="niche-em">🔧</span>
-        <h3>Épületgépészet</h3>
-        <p>Komplex projektek, ajánlatkérések, dokumentáció — rendszerezve, automatikusan.</p>
-        <span class="niche-link">Megmutatom →</span>
-      </a>
-      <a href="karbantartas.html" class="niche-card reveal" onclick="trackNiche('karbantartas')">
-        <span class="niche-em">🛠️</span>
-        <h3>Karbantartás</h3>
-        <p>Szerződéses ügyfelek, ismétlődő munkák — emlékeztetők és szervizkezelés automatikusan.</p>
-        <span class="niche-link">Megmutatom →</span>
-      </a>
-      <a href="facility-management.html" class="niche-card reveal d1" onclick="trackNiche('facility')">
-        <span class="niche-em">🏢</span>
-        <h3>Facility Management</h3>
-        <p>Hibabejelentések, ticketek, riportok — egységes rendszerbe szervezve.</p>
-        <span class="niche-link">Megmutatom →</span>
-      </a>
-      <a href="ipari-szerviz.html" class="niche-card reveal d2" onclick="trackNiche('ipari-szerviz')">
-        <span class="niche-em">⚙️</span>
-        <h3>Ipari szerviz</h3>
-        <p>Komplex szervizfolyamatok, dokumentáció, technikusok támogatása — rendszerezve.</p>
-        <span class="niche-link">Megmutatom →</span>
-      </a>
+
+    <div class="step-close reveal">
+      <strong>Ha az egyeztetés végén kiderül, hogy nálatok nincs mit optimalizálni — megmondom.</strong> Nem akarok olyan megoldást értékesíteni, amelyre nincs szükséged.
     </div>
-    <p class="niche-note reveal">Nem találod a szakterületedet? <a href="mailto:noel@sndigital.hu">Írj nekünk</a> — megbeszéljük.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── RÓLAM ─────────────────────────────────────────────── -->
+<section class="section vis-bg">
+  <div class="section-inner">
+    <div class="s-tag reveal">Rólam</div>
+    <h2 class="s-h2 reveal">Logisztikai végzettséggel,<br><span class="vc">belülről látom a problémát.</span></h2>
+    <div class="founder-card reveal">
+      <img class="founder-photo" src="website_picture.png" alt="Sivák Noel">
+      <div>
+        <div class="founder-quote">"Logisztikai iskolát végeztem, és tudom, milyen az, amikor egy fuvarszervező napja fele annyi fuvarral telik, mert az idő másik felét adminisztráció viszi el."</div>
+        <div class="founder-name">Sivák Noel</div>
+        <div class="founder-role">Logisztikai adminisztráció optimalizálás</div>
+        <p style="font-size:14px; color:var(--m); line-height:1.8; margin-top:12px;">Kifejezetten logisztikai vállalkozásokra fókuszálok, mert értem az iparág dokumentációs és koordinációs valóságát. Nem kívülről próbálom megérteni a problémát — ismert terep ez nekem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CTA / IDŐPONT ─────────────────────────────────────── -->
+<section class="cal-section" id="idopont">
+  <div class="cal-inner">
+    <div class="s-tag tc reveal" style="justify-content:center;">Egyeztetés</div>
+    <h2 class="cal-h2 reveal">Nézzük meg, nálad mekkora<br><span class="cc">a valódi adminisztrációs teher.</span></h2>
+    <p class="cal-sub reveal">Egy rövid egyeztetésen közösen átnézzük a jelenlegi folyamataidat. Nem kell felkészülni — csak mesélj arról, hogyan megy ma a napi adminisztráció.</p>
+    <div class="cal-box reveal">
+      <p>[ Calendly naptár ide kerül ]</p>
+    </div>
   </div>
 </section>
 
@@ -239,64 +580,64 @@
   <div class="footer-inner">
     <a href="index.html" class="footer-logo"><img src="sndigital-lockup-1x.png" alt="SN Digital"></a>
     <nav class="footer-links">
-      <a href="klima.html">HVAC / Klíma</a>
-      <a href="futestechnika.html">Fűtéstechnika</a>
-      <a href="villany.html">Villanyszerelés</a>
-      <a href="epuletgepeszet.html">Épületgépészet</a>
-      <a href="karbantartas.html">Karbantartás</a>
-      <a href="facility-management.html">Facility</a>
-      <a href="ipari-szerviz.html">Ipari szerviz</a>
       <a href="mailto:noel@sndigital.hu">noel@sndigital.hu</a>
-      <a href="adatkezeles.html">Adatkezelés</a>
+      <a href="adatkezeles.html">Adatkezelési tájékoztató</a>
     </nav>
   </div>
 </footer>
 
 <script>
+  // Scroll reveal
   const io = new IntersectionObserver(e => {
-    e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: .07, rootMargin: '0px 0px -32px 0px' });
+    e.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, { threshold: .06, rootMargin: '0px 0px -24px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  document.querySelectorAll('.hero-hub .reveal').forEach((el, i) => setTimeout(() => el.classList.add('in'), 80 + i * 100));
+  document.querySelectorAll('.hero-niche .reveal').forEach((el, i) => setTimeout(() => el.classList.add('in'), 60 + i * 100));
 
-  function trackNiche(n) {
-    if (typeof gtag !== 'undefined') gtag('event', 'niche_click', { niche: n });
+  // Calculator
+  const slHours    = document.getElementById('sl-hours');
+  const slRate     = document.getElementById('sl-rate');
+  const valHours   = document.getElementById('val-hours');
+  const valRate    = document.getElementById('val-rate');
+  const valStaff   = document.getElementById('val-staff');
+  const resWeekly  = document.getElementById('res-weekly');
+  const resMonthly = document.getElementById('res-monthly');
+  const resYearly  = document.getElementById('res-yearly');
+  const btnMinus   = document.getElementById('btn-minus');
+  const btnPlus    = document.getElementById('btn-plus');
+
+  let staff = 2;
+
+  function fmt(n) {
+    return n.toLocaleString('hu-HU') + ' Ft';
   }
 
-  const vSynth = window.speechSynthesis;
-  const hasSR = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
-  let vRec = null, vListening = false;
-  const vResponses = [
-    { keys: ['klíma','klima','légkondicionál','hűtés','hvac'], r: 'Klímaszerelő cégeknek speciális rendszert építünk. Nyáron a legtöbb kihagyott hívást automatikusan kezeljük. Mikor lenne jó egy rövid egyeztetés?' },
-    { keys: ['fűtés','kazán','fűt','bojler'], r: 'Fűtéstechnikai cégeknek is van tapasztalatunk — különösen téli csúcsszezonban. Mikor találkoznánk?' },
-    { keys: ['villany','elektrom','villamos','áram'], r: 'Villanyszerelőknek is dolgoztunk már — pontosan tudjuk mi kell. Mikor találkoznánk?' },
-    { keys: ['épületgépész','gépészet','épület'], r: 'Épületgépészeti cégeknek teljes projekt-kommunikációs rendszert adunk. Mikor lenne jó egy egyeztetés?' },
-    { keys: ['karbantart','szerviz','karbantartás'], r: 'Karbantartó cégeknek az ismétlődő folyamatokat automatizáljuk. Mikor találkoznánk?' },
-    { keys: ['facility','ingatlan','épületüzemeltetés'], r: 'Facility management cégeknek ticket-kezelést és automatikus riportokat adunk. Mikor egyeztetnénk?' },
-    { keys: ['ipari','gépszerviz','ipari szerviz','gyár'], r: 'Ipari szerviz cégeknek komplex szervizfolyamatot automatizálunk. Mikor lenne jó egy egyeztetés?' },
-    { keys: ['időpont','foglal','mikor'], r: 'Töltse ki a naptárat az oldalon — azonnal kap visszaigazolást!' },
-    { keys: ['ár','mennyi','kerül','fizet','árazás'], r: 'Az árazásról egy személyes egyeztetésen tudunk részletesen beszélni. Az első hívás teljesen ingyenes.' },
-    { keys: ['hogyan','működik','rendszer'], r: 'Az AI 24 órában fogadja a hívásokat, időpontot foglal és automatikusan utánkövet — komplett rendszerként.' },
-    { keys: ['szia','helló','hello','jó napot'], r: 'Jó napot! Miben segíthetünk önnek ma?' },
-    { keys: ['köszön','viszlát','bye'], r: 'Köszönjük a megkeresést! Örülünk, hogy kapcsolatba lépett velünk.' },
-    { keys: ['ai','mesterséges','asszisztens'], r: 'Igen, telefonos AI hangasszisztenst telepítünk — 24/7, magyarul, a te vállalkozásod nevében.' },
-  ];
-  function vGetResp(t) { t = t.toLowerCase(); for (const { keys, r } of vResponses) if (keys.some(k => t.includes(k))) return r; return 'Köszönöm a megkeresést! Miben segíthetünk részletesebben?'; }
-  function addBubble(txt, type) { const d = document.getElementById('dtranscript'); const b = document.createElement('div'); b.className = 'dbubble d' + type; b.textContent = txt; d.appendChild(b); d.scrollTop = d.scrollHeight; }
-  function removeThink() { document.getElementById('dtranscript').querySelectorAll('.dthink').forEach(e => e.remove()); }
-  function vSpeak(txt) { vSynth.cancel(); addBubble(txt, 'ai'); if (vSynth) { const u = new SpeechSynthesisUtterance(txt); u.lang = 'hu-HU'; u.rate = 0.92; u.pitch = 1.05; document.getElementById('dwave').classList.add('speaking'); u.onend = () => document.getElementById('dwave').classList.remove('speaking'); vSynth.speak(u); } }
-  function toggleDemo() {
-    if (!hasSR) { document.getElementById('dhint').textContent = 'Chrome vagy Edge böngészőben működik.'; return; }
-    if (vListening) { vRec.stop(); return; }
-    vSynth.cancel(); document.getElementById('dwave').classList.remove('speaking');
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    vRec = new SR(); vRec.lang = 'hu-HU'; vRec.interimResults = false; vRec.maxAlternatives = 1;
-    vRec.onstart = () => { vListening = true; document.getElementById('dmicbtn').classList.add('active'); document.getElementById('dwave').classList.add('listening'); document.getElementById('dstatus').textContent = 'Hallgatom...'; document.getElementById('dhint').textContent = 'Hallgatom...'; };
-    vRec.onresult = (e) => { const tr = e.results[0][0].transcript; vListening = false; document.getElementById('dmicbtn').classList.remove('active'); document.getElementById('dwave').classList.remove('listening'); addBubble(tr, 'user'); const think = document.createElement('div'); think.className = 'dthink'; think.textContent = 'AI gondolkodik...'; document.getElementById('dtranscript').appendChild(think); document.getElementById('dtranscript').scrollTop = document.getElementById('dtranscript').scrollHeight; document.getElementById('dstatus').textContent = 'AI gondolkodik...'; setTimeout(() => { removeThink(); vSpeak(vGetResp(tr)); document.getElementById('dstatus').textContent = 'Szólj hozzám — próbáld ki az AI-t'; document.getElementById('dhint').textContent = 'Nyomj ide és szólj hozzám magyarul'; }, 700); };
-    vRec.onerror = (e) => { vListening = false; document.getElementById('dmicbtn').classList.remove('active'); document.getElementById('dwave').classList.remove('listening'); const m = { 'not-allowed': 'Mikrofon engedély szükséges.', 'no-speech': 'Nem hallottam. Próbáld újra!', 'network': 'Hálózati hiba.' }; document.getElementById('dhint').textContent = m[e.error] || 'Próbáld újra!'; document.getElementById('dstatus').textContent = 'Szólj hozzám — próbáld ki az AI-t'; };
-    vRec.onend = () => { if (vListening) { vListening = false; document.getElementById('dmicbtn').classList.remove('active'); document.getElementById('dwave').classList.remove('listening'); } };
-    vRec.start();
+  function calc() {
+    const hours = parseInt(slHours.value);
+    const rate  = parseInt(slRate.value);
+
+    valHours.textContent = hours + ' óra / hét';
+    valRate.textContent  = rate.toLocaleString('hu-HU') + ' Ft / óra';
+    valStaff.textContent = staff;
+
+    const weekly  = hours * rate * staff;
+    const monthly = Math.round(weekly * 4.33);
+    const yearly  = weekly * 52;
+
+    resWeekly.textContent  = fmt(weekly);
+    resMonthly.textContent = fmt(monthly);
+    resYearly.textContent  = fmt(yearly);
   }
+
+  slHours.addEventListener('input', calc);
+  slRate.addEventListener('input', calc);
+
+  btnMinus.addEventListener('click', () => { if (staff > 1)  { staff--; calc(); } });
+  btnPlus.addEventListener('click',  () => { if (staff < 10) { staff++; calc(); } });
+
+  calc();
 </script>
 </body>
 </html>
