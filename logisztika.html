@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sivák Noel — logisztikai végzettséggel segítek feltárni, hol megy el feleslegesen idő és pénz az adminisztrációban. Fuvarozó és szállítmányozó cégeknek.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Logisztikai adminisztráció optimalizálás — Sivák Noel">
+  <meta property="og:description" content="Az adminisztráció pénzbe kerül. Logisztikai végzettséggel megmutatom, hol vész el feleslegesen — és hogyan lehet csökkenteni.">
+  <meta property="og:url" content="https://sndigital.hu/logisztika.html">
+  <meta property="og:image" content="https://sndigital.hu/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Logisztikai adminisztráció optimalizálás — Sivák Noel</title>
+  <link rel="icon" type="image/png" href="sndigital-icon-512.png">
+  <link rel="apple-touch-icon" href="sndigital-icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific styles — does not affect other pages */
+
+    .prob-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .insight-box {
+      margin-top: 36px;
+      padding: 28px 36px;
+      background: rgba(124,92,255,.05);
+      border: 1px solid rgba(124,92,255,.18);
+      border-radius: 16px;
+      font-size: 17px;
+      color: var(--m);
+      line-height: 1.8;
+      text-align: center;
+    }
+    .insight-box strong { color: var(--w); }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 48px;
+      max-width: 780px;
+    }
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--v);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 56px;
+      opacity: .45;
+      letter-spacing: -2px;
+    }
+    .step-body h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--w);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .step-body p {
+      font-size: 16px;
+      color: var(--m);
+      line-height: 1.8;
+    }
+    .step-close {
+      margin-top: 40px;
+      padding: 28px 36px;
+      background: rgba(124,92,255,.05);
+      border: 1px solid rgba(124,92,255,.15);
+      border-radius: 16px;
+      font-size: 16px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.8;
+      max-width: 780px;
+    }
+    .step-close strong { color: var(--w); }
+
+    /* Calculator */
+    .calc-section { padding: 88px 48px; }
+    .calc-inner { max-width: 860px; margin: 0 auto; }
+    .calc-wrap {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 28px;
+      padding: 52px;
+      margin-top: 44px;
+    }
+    .calc-intro {
+      font-size: 16px;
+      color: var(--m);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 580px;
+    }
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      margin-bottom: 44px;
+    }
+    .calc-field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--w);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .field-hint {
+      display: block;
+      font-size: 12px;
+      color: var(--sm);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .calc-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .calc-slider-row input[type="range"] {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      background: rgba(255,255,255,.1);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+    .calc-slider-row input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--v);
+      cursor: pointer;
+      box-shadow: 0 0 14px rgba(124,92,255,.5);
+      transition: box-shadow .2s;
+    }
+    .calc-slider-row input[type="range"]:hover::-webkit-slider-thumb {
+      box-shadow: 0 0 24px rgba(124,92,255,.75);
+    }
+    .calc-slider-row input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--v);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 14px rgba(124,92,255,.5);
+    }
+    .slider-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--v);
+      min-width: 110px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .stepper {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .stepper button {
+      background: rgba(255,255,255,.05);
+      border: none;
+      color: var(--w);
+      font-size: 20px;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      transition: background .2s;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .stepper button:hover { background: rgba(124,92,255,.2); }
+    .stepper-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--w);
+      min-width: 56px;
+      text-align: center;
+      padding: 0 8px;
+    }
+    .calc-results {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .calc-result-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .calc-result-card.yearly {
+      background: rgba(124,92,255,.07);
+      border-color: rgba(124,92,255,.3);
+    }
+    .calc-period {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--sm);
+      margin-bottom: 12px;
+    }
+    .calc-result-card.yearly .calc-period { color: rgba(124,92,255,.75); }
+    .calc-big {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--w);
+      letter-spacing: -.5px;
+    }
+    .calc-result-card.yearly .calc-big {
+      font-size: 34px;
+      background: linear-gradient(130deg, var(--v) 20%, var(--c) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .calc-disclaimer {
+      font-size: 12px;
+      color: var(--sm);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .calc-cta-wrap { text-align: center; }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--m);
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      padding: 13px 22px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(124,92,255,.4);
+      color: var(--w);
+    }
+
+    @media (max-width: 768px) {
+      .prob-grid { grid-template-columns: 1fr; }
+      .calc-section { padding: 64px 24px; }
+      .calc-wrap { padding: 32px 22px; }
+      .calc-results { grid-template-columns: 1fr; }
+      .insight-box { padding: 22px 24px; font-size: 16px; }
+      .step-close { padding: 22px 24px; }
+    }
+    @media (max-width: 520px) {
+      .step-item { flex-direction: column; gap: 8px; }
+      .step-num { font-size: 38px; }
+      .calc-slider-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .slider-val { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="sndigital-lockup-1x.png" alt="SN Digital"></a>
+    <a href="#idopont" class="nav-btn">Egyeztetés</a>
+  </div>
+</header>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="hero-niche">
+  <div class="hero-inner">
+    <div class="eyebrow reveal"><span class="dot"></span>Logisztikai adminisztráció · Folyamatoptimalizálás</div>
+    <h1 class="reveal">
+      Egy logisztikai cégnél<br>
+      az adminisztráció nem termel bevételt.<br>
+      <span class="vc">Mégis fizetnek érte.</span>
+    </h1>
+    <p class="niche-hero-sub reveal">
+      Logisztikai végzettséggel segítek feltárni, hol megy el feleslegesen idő és pénz a napi működésben — és hogyan lehet ezt csökkenteni.
+    </p>
+    <div class="hero-cta-row reveal">
+      <a href="#idopont" class="btn-cta">
+        Nézzük meg a te helyzetedet
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#kalkulator" class="btn-ghost">Mennyi kerül neked az adminisztráció? ↓</a>
+    </div>
+    <p class="hero-note-niche reveal">Rövid, ingyenes egyeztetés · Nincs kötelezettség</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── PROBLÉMA ──────────────────────────────────────────── -->
+<section class="section">
+  <div class="section-inner">
+    <div class="s-tag reveal">Ismerős helyzetek</div>
+    <h2 class="s-h2 reveal">Napi ismétlődő feladatok,<br>amelyek nem a fuvarozásról szólnak</h2>
+    <p class="s-p reveal">A logisztikai cég bevételt a fuvarokon termel — nem az adminisztráción. Mégis a csapat ideje és pénze nap mint nap részben ismétlődő, manuális feladatokba megy el.</p>
+
+    <div class="prob-grid">
+      <div class="vis-card reveal">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <line x1="10" y1="9" x2="8" y2="9"/>
+          </svg>
+        </div>
+        <h3>Dokumentumkezelés</h3>
+        <p>Fuvarokmányok, CMR-ek, szállítólevelek kézi rögzítése, másolása, archiválása. Naponta elvesz perceket — szorozva a hetek számával komoly összeg jön ki.</p>
+      </div>
+      <div class="vis-card reveal d1">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <h3>Koordináció és kommunikáció</h3>
+        <p>Visszaigazolások, státuszfrissítések, e-mailek kézi kezelése. Minden kis feladat megszakítja a fókuszt — és összeadva rengeteg időt visz el a tényleges munkától.</p>
+      </div>
+      <div class="vis-card reveal d1">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+        </div>
+        <h3>Számlázási adminisztráció</h3>
+        <p>Fuvarok lezárása, számlák, költségrögzítések — ismétlődő, hibalehetőségekkel teli folyamatok, amelyek mindig valakinek az asztalán landolnak.</p>
+      </div>
+      <div class="vis-card reveal d2">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <h3>Adatbevitel és nyilvántartás</h3>
+        <p>Amit lehetne egyszerűsíteni, azt kézzel csinálják — mert „mindig így csinálták". Ez az egyik legtöbb pénzt emésztő szokás a logisztikai cégeknél.</p>
+      </div>
+    </div>
+
+    <div class="insight-box reveal">
+      Ezek a feladatok egyenként kevésnek tűnnek. Összeadva: <strong>évi több millió forint értékű munkaidő</strong> megy el olyan feladatokra, amelyek nem termelnek bevételt.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── ÉRTÉKAJÁNLAT ──────────────────────────────────────── -->
+<section class="section vis-bg">
+  <div class="section-inner">
+    <div class="s-tag reveal">Miért más ez</div>
+    <h2 class="s-h2 reveal">Nem kiszervezést ajánlok.<br><span class="vc">Feltárom, hol vész el a pénz.</span></h2>
+    <p class="s-p reveal">A különbség: nem elveszem a munkát a csapatodtól — megmutatom, hol és mennyit lehet egyszerűsíteni, hogy kevesebb pénz menjen el oda, ahol nem kell.</p>
+    <div class="vis-grid">
+      <div class="vis-card reveal">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <h3>Logisztikai háttér</h3>
+        <p>Logisztikai iskolát végeztem. Nem kívülről közelítem meg a működésedet — értem a fuvarszervezés, dokumentáció és koordináció napi valóságát. Nem kell magyarázni az alapokat.</p>
+      </div>
+      <div class="vis-card reveal d1">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="11" y1="8" x2="11" y2="14"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+        <h3>Audit, nem szoftvercsomag</h3>
+        <p>Nem egy általános eszközt adok el. Megvizsgálom a te folyamataidat, és megmutatom, konkrétan hol érdemes változtatni — a te vállalkozásodra lebontva.</p>
+      </div>
+      <div class="vis-card reveal d2">
+        <div class="vis-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <h3>Pénzügyi hatás, nem munkaóra</h3>
+        <p>A cél nem az, hogy kevesebb e-mailt kezeljetek. A cél az, hogy kevesebb pénz menjen el arra, ami nem bevételt termel — és több maradjon a tényleges munkára.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── KALKULÁTOR ────────────────────────────────────────── -->
+<section class="calc-section" id="kalkulator">
+  <div class="calc-inner">
+    <div class="s-tag reveal">Becslés</div>
+    <h2 class="s-h2 reveal">Mennyibe kerül neked<br>az adminisztráció?</h2>
+    <p class="s-p reveal">Számold ki, mekkora pénzügyi súlya van az ismétlődő adminisztrációnak a vállalkozásodban.</p>
+
+    <div class="calc-wrap reveal">
+      <p class="calc-intro">Ez egy egyszerű becslés — nem könyvelés. De segít érzékeltetni, hogy az ismétlődő adminisztrációnak valós pénzügyi súlya van.</p>
+
+      <div class="calc-inputs">
+
+        <div class="calc-field">
+          <label for="sl-hours">Hány óra megy el hetente adminisztratív feladatokra a csapatban összesen?</label>
+          <div class="calc-slider-row">
+            <input type="range" id="sl-hours" min="1" max="40" value="10" step="1">
+            <span class="slider-val" id="val-hours">10&nbsp;óra&nbsp;/&nbsp;hét</span>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label for="sl-rate">Egy munkatárs becsült óraköltsége (bruttó bér + járulékok alapján)</label>
+          <span class="field-hint">Tájékoztatásul: átlagos irodai munkatársnál ~2&thinsp;500–4&thinsp;000&nbsp;Ft/óra körüli összeg szokott kijönni.</span>
+          <div class="calc-slider-row">
+            <input type="range" id="sl-rate" min="1500" max="8000" value="3000" step="100">
+            <span class="slider-val" id="val-rate">3&nbsp;000&nbsp;Ft&nbsp;/&nbsp;óra</span>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label>Hány munkatársat érint ez a feladatkör?</label>
+          <div class="stepper">
+            <button id="btn-minus" type="button" aria-label="Csökkent">−</button>
+            <span class="stepper-val" id="val-staff">2</span>
+            <button id="btn-plus" type="button" aria-label="Növel">+</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-result-card">
+          <span class="calc-period">Heti</span>
+          <span class="calc-big" id="res-weekly">60&nbsp;000&nbsp;Ft</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-period">Havi</span>
+          <span class="calc-big" id="res-monthly">260&nbsp;000&nbsp;Ft</span>
+        </div>
+        <div class="calc-result-card yearly">
+          <span class="calc-period">Éves</span>
+          <span class="calc-big" id="res-yearly">3&nbsp;120&nbsp;000&nbsp;Ft</span>
+        </div>
+      </div>
+
+      <p class="calc-disclaimer">Ez egy tájékoztató becslés, nem garantált megtakarítás. A valós helyzet feltárásához egyeztetés szükséges — a kalkulátor csupán a jelenlegi adminisztrációs teher nagyságát szemlélteti.</p>
+
+      <div class="calc-cta-wrap">
+        <a href="#idopont" class="btn-cta">
+          Nézzük meg, ebből mennyit lehet csökkenteni
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── HOGYAN SEGÍTEK ────────────────────────────────────── -->
+<section class="section">
+  <div class="section-inner">
+    <div class="s-tag reveal">Folyamat</div>
+    <h2 class="s-h2 reveal">3 lépésben derül ki,<br>hol vész el a pénz</h2>
+
+    <div class="steps-list">
+      <div class="step-item reveal">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Feltárás</h3>
+          <p>Közösen végigmegyünk a napi adminisztratív folyamatokon. Megmutatod, hogyan kezeli a csapat az ismétlődő feladatokat — én feljegyzem, hol van veszteség, hol törik meg a folyamat.</p>
+        </div>
+      </div>
+      <div class="step-item reveal d1">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Elemzés</h3>
+          <p>Összerakok egy képet arról, hogy ezek a folyamatok időben és pénzben mennyit visznek el, és hol lehet egyszerűsíteni vagy csökkenteni — a ti vállalkozásotokra lebontva.</p>
+        </div>
+      </div>
+      <div class="step-item reveal d2">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Javaslat</h3>
+          <p>Konkrét lépéseket adok, amelyeket saját tempótokban megvalósíthattok — drága IT-beruházás vagy teljes átszervezés nélkül.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-close reveal">
+      <strong>Ha az egyeztetés végén kiderül, hogy nálatok nincs mit optimalizálni — megmondom.</strong> Nem akarok olyan megoldást értékesíteni, amelyre nincs szükséged.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── RÓLAM ─────────────────────────────────────────────── -->
+<section class="section vis-bg">
+  <div class="section-inner">
+    <div class="s-tag reveal">Rólam</div>
+    <h2 class="s-h2 reveal">Logisztikai végzettséggel,<br><span class="vc">belülről látom a problémát.</span></h2>
+    <div class="founder-card reveal">
+      <img class="founder-photo" src="website_picture.png" alt="Sivák Noel">
+      <div>
+        <div class="founder-quote">"Logisztikai iskolát végeztem, és tudom, milyen az, amikor egy fuvarszervező napja fele annyi fuvarral telik, mert az idő másik felét adminisztráció viszi el."</div>
+        <div class="founder-name">Sivák Noel</div>
+        <div class="founder-role">Logisztikai adminisztráció optimalizálás</div>
+        <p style="font-size:14px; color:var(--m); line-height:1.8; margin-top:12px;">Kifejezetten logisztikai vállalkozásokra fókuszálok, mert értem az iparág dokumentációs és koordinációs valóságát. Nem kívülről próbálom megérteni a problémát — ismert terep ez nekem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CTA / IDŐPONT ─────────────────────────────────────── -->
+<section class="cal-section" id="idopont">
+  <div class="cal-inner">
+    <div class="s-tag tc reveal" style="justify-content:center;">Egyeztetés</div>
+    <h2 class="cal-h2 reveal">Nézzük meg, nálad mekkora<br><span class="cc">a valódi adminisztrációs teher.</span></h2>
+    <p class="cal-sub reveal">Egy rövid egyeztetésen közösen átnézzük a jelenlegi folyamataidat. Nem kell felkészülni — csak mesélj arról, hogyan megy ma a napi adminisztráció.</p>
+    <div class="cal-box reveal">
+      <p>[ Calendly naptár ide kerül ]</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo"><img src="sndigital-lockup-1x.png" alt="SN Digital"></a>
+    <nav class="footer-links">
+      <a href="index.html">Főoldal</a>
+      <a href="klima.html">Klímaszerelés</a>
+      <a href="villany.html">Villanyszerelés</a>
+      <a href="epuletgepeszet.html">Épületgépészet</a>
+      <a href="karbantartas.html">Karbantartás</a>
+      <a href="facility-management.html">Facility</a>
+      <a href="mailto:noel@sndigital.hu">noel@sndigital.hu</a>
+      <a href="adatkezeles.html">Adatkezelés</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver(e => {
+    e.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, { threshold: .06, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.hero-niche .reveal').forEach((el, i) => setTimeout(() => el.classList.add('in'), 60 + i * 100));
+
+  // Calculator
+  const slHours    = document.getElementById('sl-hours');
+  const slRate     = document.getElementById('sl-rate');
+  const valHours   = document.getElementById('val-hours');
+  const valRate    = document.getElementById('val-rate');
+  const valStaff   = document.getElementById('val-staff');
+  const resWeekly  = document.getElementById('res-weekly');
+  const resMonthly = document.getElementById('res-monthly');
+  const resYearly  = document.getElementById('res-yearly');
+  const btnMinus   = document.getElementById('btn-minus');
+  const btnPlus    = document.getElementById('btn-plus');
+
+  let staff = 2;
+
+  function fmt(n) {
+    return n.toLocaleString('hu-HU') + ' Ft';
+  }
+
+  function calc() {
+    const hours = parseInt(slHours.value);
+    const rate  = parseInt(slRate.value);
+
+    valHours.textContent = hours + ' óra / hét';
+    valRate.textContent  = rate.toLocaleString('hu-HU') + ' Ft / óra';
+    valStaff.textContent = staff;
+
+    const weekly  = hours * rate * staff;
+    const monthly = Math.round(weekly * 4.33);
+    const yearly  = weekly * 52;
+
+    resWeekly.textContent  = fmt(weekly);
+    resMonthly.textContent = fmt(monthly);
+    resYearly.textContent  = fmt(yearly);
+  }
+
+  slHours.addEventListener('input', calc);
+  slRate.addEventListener('input', calc);
+
+  btnMinus.addEventListener('click', () => { if (staff > 1)  { staff--; calc(); } });
+  btnPlus.addEventListener('click',  () => { if (staff < 10) { staff++; calc(); } });
+
+  calc();
+</script>
+</body>
+</html>
