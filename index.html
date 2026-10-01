@@ -317,6 +317,10 @@
       .orb { animation: none; }
     }
 
+    /* Booking widget */
+    .cal-embed { display: block; padding: 12px; min-height: 0; overflow: hidden; }
+    .cal-embed iframe { display: block; min-height: 600px; }
+
     @media (max-width: 768px) {
       .prob-grid { grid-template-columns: 1fr; }
       .calc-section { padding: 64px 24px; }
@@ -608,8 +612,9 @@
     <div class="s-tag tc reveal" style="justify-content:center;">Egyeztetés</div>
     <h2 class="cal-h2 reveal">Nézzük meg, nálad mennyi<br><span class="cc">páciens vész el konzultáció előtt.</span></h2>
     <p class="cal-sub reveal">Egy rövid egyeztetésen átnézzük, hogyan mennek ma a páciens-érdeklődőid, és megmutatom, pontosan hogyan nézne ki a rendszer a te rendelődre szabva. Nem kell felkészülni.</p>
-    <div class="cal-box reveal">
-      <p>[ Calendly naptár ide kerül ]</p>
+    <div class="cal-box cal-embed reveal">
+      <iframe src="https://api.leadconnectorhq.com/widget/booking/ZkYKeI0FV1MfmYAaPdjv" allow="payment" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="ZkYKeI0FV1MfmYAaPdjv_1790847114039"></iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
     </div>
   </div>
 </section>
