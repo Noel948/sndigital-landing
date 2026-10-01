@@ -509,7 +509,7 @@
           <label for="sl-value">Egy átlagos elfogadott kezelési terv becsült értéke (Ft)</label>
           <span class="field-hint">Pl. implantátum, fogszabályozás, esztétikai kezelés — amire a hirdetéseid szólnak.</span>
           <div class="calc-slider-row">
-            <input type="range" id="sl-value" min="100000" max="3000000" value="600000" step="50000">
+            <input type="range" id="sl-value" min="10000" max="3000000" value="600000" step="10000">
             <span class="slider-val" id="val-value">600&nbsp;000&nbsp;Ft</span>
           </div>
         </div>
@@ -660,7 +660,7 @@
     valConv.textContent  = conv + '%';
     valValue.textContent = value.toLocaleString('hu-HU') + ' Ft';
 
-    const missedLeads   = leads * (1 - conv / 100);
+    const missedLeads   = Math.round(leads * (1 - conv / 100));
     const monthlyLoss   = missedLeads * ASSUMED_CLOSE_RATE * value;
     const yearlyLoss    = monthlyLoss * 12;
 
