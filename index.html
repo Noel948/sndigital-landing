@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sivák Noel — weboldalt és AI rendszert építek fogorvosi rendelőknek, hogy a hirdetésből érkező páciens-érdeklődőkből több jusson el az első konzultációig.">
+  <title>Több páciens a fogorvosi hirdetéseidből, kevesebb üres időpont — SN Digital</title>
+  <meta name="description" content="Égeted a pénzt fogorvosi hirdetésre, a naptárad mégis lyukas? Weboldal + AI rendszer, ami 0–24-ben válaszol, időpontot foglal és csökkenti a lemondásokat.">
+  <link rel="canonical" href="https://sndigital.hu/">
+  <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Több konzultáció a meglévő hirdetéseidből — Sivák Noel">
-  <meta property="og:description" content="Már hirdetsz, jönnek a páciens-érdeklődők — de sokan elvesznek, mire konzultációig jutnának. Weboldal + AI rendszer, ami végigvezeti őket.">
+  <meta property="og:locale" content="hu_HU">
+  <meta property="og:site_name" content="SN Digital">
+  <meta property="og:title" content="Égeted a pénzt hirdetésre, a naptárad mégis lyukas?">
+  <meta property="og:description" content="Weboldal + AI rendszer fogorvosi rendelőknek: azonnali válasz, időpontfoglalás, emlékeztetők — eredménygaranciával.">
   <meta property="og:url" content="https://sndigital.hu/">
   <meta property="og:image" content="https://sndigital.hu/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Több konzultáció a meglévő hirdetéseidből — Sivák Noel</title>
   <link rel="icon" type="image/png" href="sndigital-icon-512.png">
   <link rel="apple-touch-icon" href="sndigital-icon-512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,17 +22,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ProfessionalService","name":"SN Digital","description":"Weboldal és AI rendszer fogorvosi rendelőknek, hogy a hirdetési érdeklődőkből több jusson el az első konzultációig","url":"https://sndigital.hu","email":"noel@sndigital.hu"}
+  {"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://sndigital.hu/#org", "name": "SN Digital", "url": "https://sndigital.hu/", "email": "noel@sndigital.hu", "logo": "https://sndigital.hu/sndigital-icon-512.png", "areaServed": "HU", "founder": {"@id": "https://sndigital.hu/#noel"}, "description": "Weboldal és AI rendszer magán fogorvosi rendelőknek: azonnali válasz az érdeklődőknek, online időpontfoglalás, emlékeztetők és utánkövetés, hogy a hirdetésekből több páciens üljön be a székbe.", "knowsAbout": ["fogorvosi marketing", "páciensszerzés", "online időpontfoglalás", "no-show csökkentés", "AI asszisztens"]}, {"@type": "Person", "@id": "https://sndigital.hu/#noel", "name": "Sivák Noel", "jobTitle": "Alapító", "worksFor": {"@id": "https://sndigital.hu/#org"}, "image": "https://sndigital.hu/website_picture.png"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Miért nem lesz páciens a fogorvosi hirdetésekből?", "acceptedAnswer": {"@type": "Answer", "text": "Leggyakrabban nem a hirdetéssel van baj, hanem azzal, ami utána történik: az érdeklődő nem kap azonnal választ, nincs utánkövetés, és nincs emlékeztető. A hirdetésre költött pénz így elfolyik, mielőtt a páciens leülne a székbe."}}, {"@type": "Question", "name": "Hogyan csökkenthetők a lemondások és a meg nem jelenések a fogászaton?", "acceptedAnswer": {"@type": "Answer", "text": "Automatikus emlékeztetőkkel, egyszerű átfoglalási lehetőséggel, és azzal, hogy a felszabaduló időpontot a rendszer azonnal felajánlja a várakozó pácienseknek. Így kevesebb időpont marad üresen."}}, {"@type": "Question", "name": "Többet kell költenem hirdetésre?", "acceptedAnswer": {"@type": "Answer", "text": "Nem. A rendszer a meglévő hirdetéseid mögé épül, és abból hoz ki több konzultációt, amiért most is fizetsz."}}, {"@type": "Question", "name": "Le kell cserélnem a mostani weboldalamat vagy rendszeremet?", "acceptedAnswer": {"@type": "Answer", "text": "Nem feltétlenül. Az egyeztetésen megnézzük, mi működik ma nálad, és ahhoz igazítjuk a megoldást."}}, {"@type": "Question", "name": "Mennyibe kerül?", "acceptedAnswer": {"@type": "Answer", "text": "Rendelőnként eltér, mert a rendszert a te folyamatodhoz szabom. Az egyeztetés után konkrét ajánlatot kapsz — az eredménygarancia miatt pedig nem vállalsz kockázatot."}}, {"@type": "Question", "name": "Mi történik az ingyenes egyeztetésen?", "acceptedAnswer": {"@type": "Answer", "text": "Átnézzük, hogyan érkeznek ma az érdeklődőid, hol vesznek el, és mennyi bevétel múlik ezen. Nem kell felkészülnöd, és nincs kötelezettség."}}]}]}
   </script>
   <style>
     /* Page-specific styles — does not affect other pages */
-
-    .prob-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 48px;
-    }
 
     .insight-box {
       margin-top: 36px;
@@ -322,7 +319,6 @@
     .cal-embed iframe { display: block; min-height: 600px; }
 
     @media (max-width: 768px) {
-      .prob-grid { grid-template-columns: 1fr; }
       .calc-section { padding: 64px 24px; }
       .calc-wrap { padding: 32px 22px; }
       .calc-results { grid-template-columns: 1fr; }
@@ -335,6 +331,61 @@
       .calc-slider-row { flex-direction: column; align-items: flex-start; gap: 10px; }
       .slider-val { text-align: left; }
     }
+
+    /* Hero trust row */
+    .hero-trust { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 22px; margin-top: 26px; font-size: 13px; color: var(--m); }
+    .hero-trust li::before { content: '✓'; color: var(--c); font-weight: 700; margin-right: 7px; }
+
+    /* Pain cards */
+    .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+    .pain-card { background: var(--card); border: 1px solid rgba(255,255,255,.07); border-radius: 20px; padding: 36px; }
+    .pain-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(255,99,99,.08); color: #ff7a7a; margin-bottom: 20px; }
+    .pain-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 12px; }
+    .pain-card > p { font-size: 15px; color: var(--m); line-height: 1.8; margin-bottom: 18px; }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pain-list li { font-size: 14px; color: rgba(255,255,255,.75); padding-left: 24px; position: relative; }
+    .pain-list li::before { content: '✕'; position: absolute; left: 0; color: #ff7a7a; font-weight: 700; }
+
+    /* Problem → solution rows */
+    .fix-list { display: flex; flex-direction: column; gap: 14px; margin-top: 44px; }
+    .fix-row { display: grid; grid-template-columns: 1fr 32px 1.6fr; align-items: center; gap: 16px; background: var(--card); border: 1px solid rgba(255,255,255,.07); border-radius: 16px; padding: 22px 26px; }
+    .fix-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 6px; }
+    .fix-prob { font-size: 15px; color: var(--m); }
+    .fix-prob .fix-label { color: #ff7a7a; }
+    .fix-sol { font-size: 15px; color: var(--m); line-height: 1.7; }
+    .fix-sol .fix-label { color: var(--c); }
+    .fix-sol strong { color: var(--w); }
+    .fix-arrow { font-size: 22px; color: var(--v); text-align: center; }
+    .mid-cta { text-align: center; margin-top: 44px; }
+
+    /* Guarantee */
+    .guarantee { display: flex; gap: 40px; align-items: flex-start; padding: 48px; border-radius: 24px; background: linear-gradient(135deg, rgba(124,92,255,.10), rgba(34,211,238,.06)); border: 1px solid rgba(124,92,255,.35); }
+    .g-badge { flex-shrink: 0; width: 84px; height: 84px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--c); background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.3); }
+    .g-items { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+    .g-item h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .g-item p { font-size: 15px; color: var(--m); line-height: 1.8; }
+    .g-item strong { color: var(--w); }
+
+    /* FAQ */
+    .faq { margin-top: 40px; max-width: 820px; display: flex; flex-direction: column; gap: 12px; }
+    .faq details { background: var(--card); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: 0 24px; }
+    .faq summary { cursor: pointer; list-style: none; padding: 20px 28px 20px 0; position: relative; font-weight: 600; font-size: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--v); transition: transform .2s; }
+    .faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+    .faq details p { font-size: 15px; color: var(--m); line-height: 1.8; padding-bottom: 20px; }
+
+    /* Calendar perks */
+    .cal-perks { list-style: none; display: inline-flex; flex-direction: column; gap: 8px; text-align: left; margin: -24px auto 36px; font-size: 15px; color: rgba(255,255,255,.8); }
+    .cal-perks li::before { content: '✓'; color: var(--c); font-weight: 700; margin-right: 10px; }
+
+    @media (max-width: 768px) {
+      .pain-grid, .g-items { grid-template-columns: 1fr; }
+      .pain-card { padding: 28px 22px; }
+      .fix-row { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
+      .fix-arrow { transform: rotate(90deg); text-align: left; width: 22px; }
+      .guarantee { flex-direction: column; padding: 32px 22px; gap: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -342,9 +393,11 @@
 <header class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="sndigital-lockup-1x.png" alt="SN Digital"></a>
-    <a href="#idopont" class="nav-btn">Egyeztetés</a>
+    <a href="#idopont" class="nav-btn">Ingyenes elemzés</a>
   </div>
 </header>
+
+<main>
 
 <!-- ── HERO ─────────────────────────────────────────────── -->
 <section class="hero-niche">
@@ -356,21 +409,24 @@
   <div class="hero-inner">
     <div class="eyebrow reveal"><span class="dot"></span>Magán fogorvosi rendelőknek és klinikáknak</div>
     <h1 class="reveal">
-      Fizetsz a hirdetésért.<br>
-      A páciens érdeklődik.<br>
-      <span class="vc">De a székbe nem ül be.</span>
+      Égeted a pénzt hirdetésre,<br>
+      a naptárad mégis <span class="vc">lyukas?</span>
     </h1>
     <p class="niche-hero-sub reveal">
-      Nem hirdetéskezelést kínálok — <strong>a meglévő hirdetéseid mögé építek rendszert.</strong> Weboldal és AI, ami azonnal válaszol az érdeklődőnek — akkor is, ha épp kezelsz —, és egészen az első konzultációig viszi, hogy a hirdetési pénzed ne folyjon el feleslegesen.
+      A hirdetés hozza az érdeklődőt — de azonnali válasz, utánkövetés és emlékeztető nélkül sosem lesz belőle páciens a székben. <strong>Weboldalt és AI rendszert építek a hirdetéseid mögé, ami 0–24-ben válaszol, időpontot foglal és megtölti a naptárad</strong> — egy forinttal több hirdetési költés nélkül.
     </p>
     <div class="hero-cta-row reveal">
       <a href="#idopont" class="btn-cta">
-        Nézzük meg a te helyzetedet
+        Kérem az ingyenes elemzést
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#kalkulator" class="btn-ghost">Mennyi bevétel vész el nálad? ↓</a>
+      <a href="#kalkulator" class="btn-ghost">Mennyi pénzt égetsz el? ↓</a>
     </div>
-    <p class="hero-note-niche reveal">Rövid, ingyenes egyeztetés · Nincs kötelezettség</p>
+    <ul class="hero-trust reveal">
+      <li>Ingyenes, rövid online egyeztetés</li>
+      <li>Nincs kötelezettség</li>
+      <li>Eredménygarancia</li>
+    </ul>
   </div>
 </section>
 
@@ -379,101 +435,84 @@
 <!-- ── PROBLÉMA ──────────────────────────────────────────── -->
 <section class="section">
   <div class="section-inner">
-    <div class="s-tag reveal">Ismerős helyzetek</div>
-    <h2 class="s-h2 reveal">A hirdetés hozza az érdeklődőt.<br>Utána vész el a legtöbb.</h2>
-    <p class="s-p reveal">Az implantátumra, fogszabályozásra vagy esztétikai kezelésre érdeklődő páciens beírt vagy hívott. Onnantól minden azon múlik, mi történik a következő órákban — és pontosan itt szivárog el a hirdetési pénz nagy része.</p>
+    <div class="s-tag reveal">Ismerős?</div>
+    <h2 class="s-h2 reveal">Két szivárgás viszi el a profitod.<br><span class="vc">Egyiket sem a hirdetés okozza.</span></h2>
 
-    <div class="prob-grid">
-      <div class="vis-card reveal">
-        <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
         </div>
-        <h3>Esti üzenet, másnapi válasz</h3>
-        <p>Az érdeklődő este 9-kor írja meg, mennyibe kerülne egy implantátum. Mire reggel válaszolnátok, már három másik rendelőnek is írt — és az egyiknél időpontot is foglalt.</p>
+        <h3>1. Égő hirdetési pénz</h3>
+        <p>Minden kattintásért fizetsz. Az érdeklődő ír vagy telefonál — de ha nem kap azonnal választ, pár perc múlva már a következő rendelőt keresi. A pénzt te fizetted ki, a páciens máshol ül a székben.</p>
+        <ul class="pain-list">
+          <li>Esti és hétvégi üzenetek válasz nélkül</li>
+          <li>Kezelés közben senki nem veszi fel a telefont</li>
+          <li>Megkapja az árat, utána csend</li>
+        </ul>
       </div>
-      <div class="vis-card reveal d1">
-        <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
+      <div class="pain-card reveal d1">
+        <div class="pain-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="10" y1="14" x2="14" y2="18"/><line x1="14" y1="14" x2="10" y2="18"/></svg>
         </div>
-        <h3>Kezelés közben senki nem veszi fel</h3>
-        <p>Te a páciensnél vagy, az asszisztens a széknél segít. A telefon kicseng, az érdeklődő leteszi — és felhívja a következő rendelőt a listán.</p>
-      </div>
-      <div class="vis-card reveal d1">
-        <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-          </svg>
-        </div>
-        <h3>Ugyanazok a kérdések, mindig újra</h3>
-        <p>Mennyibe kerül, fáj-e, meddig tart, van-e részletfizetés — a recepció nap mint nap ugyanazokra a kérdésekre válaszol, ahelyett hogy időpontot foglalna.</p>
-      </div>
-      <div class="vis-card reveal d2">
-        <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="1" x2="12" y2="23"/>
-            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-          </svg>
-        </div>
-        <h3>A hirdetési pénz egy része elfolyik</h3>
-        <p>Nem azért maradnak üres időpontok, mert kevés az érdeklődő — hanem mert a folyamat csak a töredéküket viszi el az első konzultációig. A hirdetés jó, a rendszer hiányzik mögüle.</p>
+        <h3>2. Lyukas naptár</h3>
+        <p>Lemondott és el nem jött időpontok — a szék üresen áll, a bérleti díj, az asszisztens bére és a rezsi viszont ugyanannyi. Az üres óra a legdrágább óra a rendelőben.</p>
+        <ul class="pain-list">
+          <li>Nem jön el, és nem is szól előre</li>
+          <li>Utolsó pillanatos lemondás, amit senki nem tölt be</li>
+          <li>Félbehagyott kezelési tervek, akik nem jönnek vissza</li>
+        </ul>
       </div>
     </div>
 
     <div class="insight-box reveal">
-      Nem több hirdetésre van szükséged. <strong>Arra van szükséged, hogy a már kifizetett érdeklődőkből több üljön be a székbe.</strong>
+      Nem több hirdetésre van szükséged. <strong>Arra, hogy a már kifizetett érdeklődőkből páciens legyen — és meg is jelenjen.</strong>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ── ÉRTÉKAJÁNLAT ──────────────────────────────────────── -->
+<!-- ── MEGOLDÁS ──────────────────────────────────────────── -->
 <section class="section vis-bg">
   <div class="section-inner">
-    <div class="s-tag reveal">Miért más ez</div>
-    <h2 class="s-h2 reveal">Nem hirdetek helyetted.<br><span class="vc">Rendszert építek a hirdetéseid mögé.</span></h2>
-    <p class="s-p reveal">Nem ügynökséget keresel, aki elkölti a hirdetési kereted. Olyan rendszert kapsz, ami a már meglévő érdeklődő-forgalmadból hoz ki többet — anélkül, hogy egy fillérrel is többet költenél hirdetésre.</p>
-    <div class="vis-grid">
-      <div class="vis-card reveal">
-        <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-        </div>
-        <h3>Azt használom ki, ami már megvan</h3>
-        <p>Már hirdetsz, már jönnek az érdeklődők — ez a kiindulópont. Nem hirdetéskezelést adok el, hanem azt oldom meg, ami utána történik.</p>
+    <div class="s-tag reveal">A megoldás</div>
+    <h2 class="s-h2 reveal">Minden szivárgásra<br><span class="vc">van egy befoltozott lyuk.</span></h2>
+    <p class="s-p reveal">Nem hirdetek helyetted. Egy rendszert építek a meglévő hirdetéseid mögé, ami végigviszi az érdeklődőt a kattintástól a kezelőszékig.</p>
+
+    <div class="fix-list">
+      <div class="fix-row reveal">
+        <div class="fix-prob"><span class="fix-label">Probléma</span>Az érdeklődő órákig vár a válaszra</div>
+        <div class="fix-arrow" aria-hidden="true">→</div>
+        <div class="fix-sol"><span class="fix-label">Megoldás</span><strong>Azonnali válasz, 0–24.</strong> Az AI másodperceken belül reagál, és ott helyben lefoglalja a konzultációt — akkor is, ha épp kezelsz.</div>
       </div>
-      <div class="vis-card reveal d1">
-        <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="11" width="18" height="10" rx="2"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-          </svg>
-        </div>
-        <h3>Weboldal + AI, ami végigvezet</h3>
-        <p>Az érdeklődő azonnal választ kap a kérdéseire, és konzultációs időpontot foglal — éjjel is, hétvégén is, és akkor is, ha te éppen kezelsz.</p>
+      <div class="fix-row reveal">
+        <div class="fix-prob"><span class="fix-label">Probléma</span>A recepció egész nap ugyanazokra a kérdésekre válaszol</div>
+        <div class="fix-arrow" aria-hidden="true">→</div>
+        <div class="fix-sol"><span class="fix-label">Megoldás</span><strong>Előszűrt, időponttal érkező páciens.</strong> Az AI megválaszolja a gyakori kérdéseket — ár, fájdalom, időtartam, részletfizetés —, a csapatod pedig a pácienssel foglalkozhat.</div>
       </div>
-      <div class="vis-card reveal d2">
-        <div class="vis-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--v)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-          </svg>
-        </div>
-        <h3>A cél: több konzultáció, nem több kattintás</h3>
-        <p>Nem azt mérjük, hány embert ér el a hirdetés. Azt mérjük, hány érdeklődőből lesz ténylegesen lefoglalt konzultáció — mert onnantól van esély az elfogadott kezelési tervre.</p>
+      <div class="fix-row reveal">
+        <div class="fix-prob"><span class="fix-label">Probléma</span>Nem jön el, vagy az utolsó pillanatban lemondja</div>
+        <div class="fix-arrow" aria-hidden="true">→</div>
+        <div class="fix-sol"><span class="fix-label">Megoldás</span><strong>Automatikus emlékeztetők és egyszerű átfoglalás.</strong> A felszabaduló időpontot a rendszer felajánlja a várakozó pácienseknek, így nem marad üresen.</div>
       </div>
+      <div class="fix-row reveal">
+        <div class="fix-prob"><span class="fix-label">Probléma</span>Aki nem foglalt azonnal, elveszett</div>
+        <div class="fix-arrow" aria-hidden="true">→</div>
+        <div class="fix-sol"><span class="fix-label">Megoldás</span><strong>Automatikus utánkövetés.</strong> Aki érdeklődött, de nem foglalt — vagy félbehagyta a kezelési tervét —, azt a rendszer újra megkeresi.</div>
+      </div>
+      <div class="fix-row reveal">
+        <div class="fix-prob"><span class="fix-label">Probléma</span>Nem tudod, mit hoz valójában a hirdetés</div>
+        <div class="fix-arrow" aria-hidden="true">→</div>
+        <div class="fix-sol"><span class="fix-label">Megoldás</span><strong>Átlátható számok.</strong> Látod, hány érdeklődőből lett konzultáció és elfogadott kezelési terv — becslés helyett tényekből.</div>
+      </div>
+    </div>
+
+    <div class="mid-cta reveal">
+      <a href="#idopont" class="btn-cta">
+        Nézzük meg, nálad hol szivárog
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -484,11 +523,11 @@
 <section class="calc-section" id="kalkulator">
   <div class="calc-inner">
     <div class="s-tag reveal">Becslés</div>
-    <h2 class="s-h2 reveal">Mennyi bevétel vész el nálad<br>havonta?</h2>
-    <p class="s-p reveal">Számold ki, hozzávetőlegesen mennyi bevétel marad el amiatt, hogy a hirdetésből érkező érdeklődők egy része sosem jut el az első konzultációig.</p>
+    <h2 class="s-h2 reveal">Mennyi pénzt éget el nálad<br>a szivárgás havonta?</h2>
+    <p class="s-p reveal">Számold ki, hozzávetőlegesen mennyi bevétel marad el amiatt, hogy a hirdetésből érkező érdeklődők egy része sosem ül be a székbe.</p>
 
     <div class="calc-wrap reveal">
-      <p class="calc-intro">Ez egy egyszerű becslés — nem garancia. De segít érzékeltetni, mekkora tétje van annak, ha a konzultációig jutási arány néhány százalékponttal javul.</p>
+      <p class="calc-intro">Ez egy egyszerű becslés — nem garancia. De megmutatja, mekkora tétje van annak, ha néhány százalékponttal több érdeklődő jut el az első konzultációig.</p>
 
       <div class="calc-inputs">
 
@@ -535,7 +574,7 @@
         </div>
       </div>
 
-      <p class="calc-disclaimer">A becslés azt feltételezi, hogy a konzultációig el nem jutott érdeklődők kb. 40%-a elfogadott volna egy kezelési tervet, ha eljut a rendelőbe. Ez egy tájékoztató szemléltetés, nem garantált bevétel — a valós helyzet feltárásához egyeztetés szükséges.</p>
+      <p class="calc-disclaimer">A becslés azt feltételezi, hogy a konzultációig el nem jutott érdeklődők kb. 40%-a elfogadott volna egy kezelési tervet, ha eljut a rendelőbe. Ez tájékoztató szemléltetés, nem garantált bevétel — a valós helyzet feltárásához egyeztetés szükséges.</p>
 
       <div class="calc-cta-wrap">
         <a href="#idopont" class="btn-cta">
@@ -549,38 +588,61 @@
 
 <div class="divider"></div>
 
-<!-- ── HOGYAN SEGÍTEK ────────────────────────────────────── -->
+<!-- ── FOLYAMAT ──────────────────────────────────────────── -->
 <section class="section">
   <div class="section-inner">
-    <div class="s-tag reveal">Folyamat</div>
-    <h2 class="s-h2 reveal">3 lépésben épül fel<br>a rendszer a hirdetéseid mögé</h2>
+    <div class="s-tag reveal">Hogyan működik</div>
+    <h2 class="s-h2 reveal">3 lépés, és a rendszer<br>dolgozik helyetted</h2>
 
     <div class="steps-list">
       <div class="step-item reveal">
         <div class="step-num">1</div>
         <div class="step-body">
-          <h3>Feltérképezés</h3>
-          <p>Végignézzük, hogyan érkeznek ma a páciens-érdeklődőid, mi történik velük az első kontakttól az első konzultációig — és pontosan hol vesznek el a legtöbben útközben.</p>
+          <h3>Ingyenes elemzés</h3>
+          <p>Egy rövid online egyeztetésen megnézzük, hogyan érkeznek ma a páciens-érdeklődőid, és pontosan hol vesznek el a kattintás és a kezelőszék között.</p>
         </div>
       </div>
       <div class="step-item reveal d1">
         <div class="step-num">2</div>
         <div class="step-body">
-          <h3>Rendszer felépítése</h3>
-          <p>Elkészítem a weboldalt és az AI-t, ami azonnal reagál az érdeklődőre, megválaszolja a gyakori kérdéseit, és lefoglalja a konzultációs időpontot — a rendelő naptárába.</p>
+          <h3>Felépítem a rendszert</h3>
+          <p>A weboldalt, az AI-t, az emlékeztetőket és az utánkövetést én állítom be, a rendelőd működéséhez igazítva. Technikai tudás nem kell hozzá.</p>
         </div>
       </div>
       <div class="step-item reveal d2">
         <div class="step-num">3</div>
         <div class="step-body">
-          <h3>Beépítés és mérés</h3>
-          <p>A rendszer a meglévő hirdetéseid mögött dolgozik tovább. Látod, hány érdeklődőből lesz konzultáció — nem becslésből, hanem tényleges számokból.</p>
+          <h3>Telik a naptár — és látod is</h3>
+          <p>A rendszer a meglévő hirdetéseid mögött dolgozik. Te azt látod, hány érdeklődőből lett konzultáció, és hány korábban üres időpont telt be.</p>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="step-close reveal">
-      <strong>Ha az egyeztetés végén kiderül, hogy nálad nincs mit javítani a folyamaton — megmondom.</strong> Nem akarok olyan rendszert eladni, amelyre nincs szükséged.
+<div class="divider"></div>
+
+<!-- ── GARANCIA ──────────────────────────────────────────── -->
+<section class="section vis-bg" id="garancia">
+  <div class="section-inner">
+    <div class="guarantee reveal">
+      <div class="g-badge" aria-hidden="true">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <div>
+        <div class="s-tag">Garancia</div>
+        <h2 class="s-h2">A kockázat az enyém,<br><span class="vc">nem a tiéd.</span></h2>
+        <div class="g-items">
+          <div class="g-item">
+            <h3>Eredménygarancia</h3>
+            <p>Ha a rendszer indulása utáni 90 napban nem foglalnak nálad több konzultációt, mint előtte, <strong>díjmentesen dolgozom tovább rajta, amíg nem nő a szám.</strong></p>
+          </div>
+          <div class="g-item">
+            <h3>Őszinteség-garancia</h3>
+            <p>Ha az egyeztetésen kiderül, hogy nálad nincs mit javítani a folyamaton, <strong>megmondom — és nem adok el semmit.</strong></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -588,18 +650,53 @@
 <div class="divider"></div>
 
 <!-- ── RÓLAM ─────────────────────────────────────────────── -->
-<section class="section vis-bg">
+<section class="section">
   <div class="section-inner">
     <div class="s-tag reveal">Rólam</div>
-    <h2 class="s-h2 reveal">Nem fogorvos vagyok.<br><span class="vc">Azt kutattam ki, hol vesznek el a páciens-érdeklődők.</span></h2>
+    <h2 class="s-h2 reveal">Nem fogorvos vagyok.<br><span class="vc">Azt kutattam ki, hol vesznek el a páciensek.</span></h2>
     <div class="founder-card reveal">
-      <img class="founder-photo" src="website_picture.png" alt="Sivák Noel">
+      <img class="founder-photo" src="website_picture.png" alt="Sivák Noel, az SN Digital alapítója" width="110" height="110" loading="lazy">
       <div>
         <div class="founder-quote">"Megnéztem, hogyan kezelik ma a magán fogorvosi rendelők a hirdetésből érkező érdeklődőket — és szinte mindenhol ugyanazt láttam: nem a hirdetés a gyenge pont, hanem az, ami utána történik."</div>
         <div class="founder-name">Sivák Noel</div>
-        <div class="founder-role">Weboldal + AI rendszer a meglévő hirdetéseid mögé</div>
-        <p style="font-size:14px; color:var(--m); line-height:1.8; margin-top:12px;">Kifejezetten olyan fogorvosi rendelőkkel dolgozom, amelyek már hirdetnek — mert náluk konkrétan mérhető, mennyi múlik a folyamaton. Nem kívülről próbálom megérteni a problémát: alaposan feltérképeztem, hol veszik el a legtöbb hirdetésre költött forint.</p>
+        <div class="founder-role">SN Digital · Weboldal + AI rendszer fogorvosi rendelőknek</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── GYIK ──────────────────────────────────────────────── -->
+<section class="section vis-bg" id="gyik">
+  <div class="section-inner">
+    <div class="s-tag reveal">Gyakori kérdések</div>
+    <h2 class="s-h2 reveal">Amit a legtöbben kérdeznek</h2>
+    <div class="faq">
+      <details class="reveal">
+        <summary>Miért nem lesz páciens a fogorvosi hirdetésekből?</summary>
+        <p>Leggyakrabban nem a hirdetéssel van baj, hanem azzal, ami utána történik: az érdeklődő nem kap azonnal választ, nincs utánkövetés, és nincs emlékeztető. A hirdetésre költött pénz így elfolyik, mielőtt a páciens leülne a székbe.</p>
+      </details>
+      <details class="reveal">
+        <summary>Hogyan csökkenthetők a lemondások és a meg nem jelenések a fogászaton?</summary>
+        <p>Automatikus emlékeztetőkkel, egyszerű átfoglalási lehetőséggel, és azzal, hogy a felszabaduló időpontot a rendszer azonnal felajánlja a várakozó pácienseknek. Így kevesebb időpont marad üresen.</p>
+      </details>
+      <details class="reveal">
+        <summary>Többet kell költenem hirdetésre?</summary>
+        <p>Nem. A rendszer a meglévő hirdetéseid mögé épül, és abból hoz ki több konzultációt, amiért most is fizetsz.</p>
+      </details>
+      <details class="reveal">
+        <summary>Le kell cserélnem a mostani weboldalamat vagy rendszeremet?</summary>
+        <p>Nem feltétlenül. Az egyeztetésen megnézzük, mi működik ma nálad, és ahhoz igazítjuk a megoldást.</p>
+      </details>
+      <details class="reveal">
+        <summary>Mennyibe kerül?</summary>
+        <p>Rendelőnként eltér, mert a rendszert a te folyamatodhoz szabom. Az egyeztetés után konkrét ajánlatot kapsz — az eredménygarancia miatt pedig nem vállalsz kockázatot.</p>
+      </details>
+      <details class="reveal">
+        <summary>Mi történik az ingyenes egyeztetésen?</summary>
+        <p>Átnézzük, hogyan érkeznek ma az érdeklődőid, hol vesznek el, és mennyi bevétel múlik ezen. Nem kell felkészülnöd, és nincs kötelezettség.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -609,15 +706,23 @@
 <!-- ── CTA / IDŐPONT ─────────────────────────────────────── -->
 <section class="cal-section" id="idopont">
   <div class="cal-inner">
-    <div class="s-tag tc reveal" style="justify-content:center;">Egyeztetés</div>
-    <h2 class="cal-h2 reveal">Nézzük meg, nálad mennyi<br><span class="cc">páciens vész el konzultáció előtt.</span></h2>
-    <p class="cal-sub reveal">Egy rövid egyeztetésen átnézzük, hogyan mennek ma a páciens-érdeklődőid, és megmutatom, pontosan hogyan nézne ki a rendszer a te rendelődre szabva. Nem kell felkészülni.</p>
+    <div class="s-tag tc reveal" style="justify-content:center;">Ingyenes elemzés</div>
+    <h2 class="cal-h2 reveal">Állítsuk meg a pénzégetést,<br><span class="cc">és töltsük meg a naptárad.</span></h2>
+    <p class="cal-sub reveal">Válassz egy időpontot. Az egyeztetés végére pontosan látni fogod:</p>
+    <ul class="cal-perks reveal">
+      <li>hol szivárognak el ma a páciens-érdeklődőid,</li>
+      <li>mennyi bevétel múlik ezen havonta,</li>
+      <li>és hogyan nézne ki a rendszer a te rendelődre szabva.</li>
+    </ul>
     <div class="cal-box cal-embed reveal">
-      <iframe src="https://api.leadconnectorhq.com/widget/booking/ZkYKeI0FV1MfmYAaPdjv" allow="payment" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="ZkYKeI0FV1MfmYAaPdjv_1790847114039"></iframe>
+      <iframe src="https://api.leadconnectorhq.com/widget/booking/ZkYKeI0FV1MfmYAaPdjv" allow="payment" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="ZkYKeI0FV1MfmYAaPdjv_1790847114039" title="Időpontfoglalás"></iframe>
       <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
     </div>
+    <p class="hero-note-niche reveal" style="margin-top:20px;">Ingyenes · Nincs kötelezettség · Eredménygaranciával</p>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="footer-inner">
