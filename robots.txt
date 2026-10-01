@@ -4,5 +4,16 @@ Disallow: /thankyou.html
 Disallow: /thankyou-klima.html
 Disallow: /thankyou-villany.html
 Disallow: /thankyou-felujito.html
+Disallow: /hoszivattyu.html
+Disallow: /nyilaszaro.html
+Disallow: /logisztika.html
+Disallow: /klima.html
+Disallow: /futestechnika.html
+Disallow: /villany.html
+Disallow: /epuletgepeszet.html
+Disallow: /karbantartas.html
+Disallow: /facility-management.html
+Disallow: /ipari-szerviz.html
+Disallow: /felujito.html
 
 Sitemap: https://sndigital.hu/sitemap.xml
