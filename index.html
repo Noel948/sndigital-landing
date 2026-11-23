@@ -638,8 +638,8 @@
   calc();
 
   // Newsletter (inline + popup)
-  // TODO: ide kerül a hírlevél-rendszer (pl. GHL Inbound Webhook) URL-je. Üresen hagyva a feliratkozás nem küld el semmit.
-  const NEWSLETTER_ENDPOINT = '';
+  // Vercel function → GoHighLevel kontakt + "hirlevel" címke (lásd api/subscribe.js)
+  const NEWSLETTER_ENDPOINT = '/api/subscribe';
   const NL_KEY = 'sn_nl_state';
   const nlStore = {
     get() { try { return localStorage.getItem(NL_KEY); } catch (e) { return null; } },
@@ -673,7 +673,7 @@
             first_name: name.value.trim(),
             email: email.value.trim(),
             consent: true,
-            consent_at: new Date().toISOString(),
+            company_website: form.elements.company_website.value,
             source: form.closest('#nl-modal') ? 'popup' : 'inline',
             page: location.href
           })
